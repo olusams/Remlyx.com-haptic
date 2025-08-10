@@ -1,0 +1,593 @@
+/* Enhanced Side Navigation - Modern Design */
+
+/* ========================================
+   ENHANCED SIDEBAR OVERLAY
+======================================== */
+
+.xs-sidebar-group.info-group .xs-overlay {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.xs-sidebar-group.info-group.isActive .xs-overlay {
+    animation: overlayFadeIn 0.4s ease-out;
+}
+
+@keyframes overlayFadeIn {
+    from {
+        opacity: 0;
+        backdrop-filter: blur(0px);
+    }
+    to {
+        opacity: 1;
+        backdrop-filter: blur(10px);
+    }
+}
+
+/* ========================================
+   ENHANCED SIDEBAR WIDGET
+======================================== */
+
+.xs-sidebar-widget {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    border-left: 2px solid #ff4757;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    max-width: 420px !important;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Beautiful background pattern */
+.xs-sidebar-widget::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 20%, rgba(255, 71, 87, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 71, 87, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Animated background particles */
+.xs-sidebar-widget::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, rgba(255, 71, 87, 0.3), transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.2), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(255, 71, 87, 0.2), transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.1), transparent);
+    background-repeat: repeat;
+    background-size: 150px 100px;
+    animation: floatingParticles 20s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes floatingParticles {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(-100px);
+    }
+}
+
+/* Ensure content is above background */
+.sidebar-widget-container {
+    position: relative;
+    z-index: 1;
+}
+
+.xs-sidebar-group.isActive .xs-sidebar-widget {
+    animation: slideInFromRight 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -15px 0 40px rgba(0, 0, 0, 0.7);
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* ========================================
+   ENHANCED SIDEBAR CONTAINER
+======================================== */
+
+.sidebar-widget-container {
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.xs-sidebar-group.isActive .sidebar-widget-container {
+    animation: contentSlideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
+}
+
+@keyframes contentSlideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ========================================
+   ENHANCED CLOSE BUTTON
+======================================== */
+
+.close-side-widget {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: rgba(255, 71, 87, 0.2);
+    border: 2px solid #ff4757;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    color: #ff4757 !important;
+    font-size: 18px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    text-decoration: none;
+}
+
+.close-side-widget:hover {
+    background: #ff4757;
+    color: white !important;
+    transform: scale(1.1) rotate(90deg);
+    box-shadow: 0 5px 20px rgba(255, 71, 87, 0.4);
+}
+
+.close-side-widget i {
+    font-size: 16px;
+}
+
+/* ========================================
+   ENHANCED SIDEBAR LOGO
+======================================== */
+
+.sidebar-logo {
+    padding: 40px 30px 20px !important;
+    margin-bottom: 20px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background: linear-gradient(45deg, rgba(255, 71, 87, 0.1), rgba(255, 71, 87, 0.05));
+    position: relative;
+    overflow: hidden;
+}
+
+.sidebar-logo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.sidebar-logo:hover::before {
+    left: 100%;
+}
+
+.sidebar-logo img {
+    filter: brightness(1.1) contrast(1.1);
+    transition: all 0.3s ease;
+    max-height: 60px !important;
+    width: auto !important;
+}
+
+.sidebar-logo:hover img {
+    transform: scale(1.05);
+    filter: brightness(1.2) contrast(1.2) drop-shadow(0 5px 15px rgba(255, 71, 87, 0.3));
+}
+
+/* ========================================
+   ENHANCED SIDEBAR MENU
+======================================== */
+
+.sidebar-menu {
+    margin-bottom: 30px !important;
+    padding: 0 20px;
+}
+
+.sidebar-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    margin: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-menu li:hover {
+    background: rgba(255, 71, 87, 0.1);
+    transform: translateX(5px);
+    box-shadow: 0 5px 20px rgba(255, 71, 87, 0.2);
+}
+
+.sidebar-menu li a {
+    display: flex !important;
+    align-items: center !important;
+    padding: 18px 20px !important;
+    color: #fff !important;
+    text-decoration: none;
+    font-weight: 500 !important;
+    font-size: 16px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px;
+    border: none !important;
+    border-bottom: none !important;
+    border-left: none !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.sidebar-menu li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.4s ease;
+}
+
+.sidebar-menu li a:hover::before {
+    left: 100%;
+}
+
+.sidebar-menu li a i {
+    width: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(255, 71, 87, 0.2);
+    border-radius: 10px;
+    margin-right: 15px !important;
+    font-size: 18px !important;
+    color: #ff4757 !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-menu li a:hover {
+    color: #ff4757 !important;
+    transform: translateX(5px);
+}
+
+.sidebar-menu li a:hover i {
+    background: #ff4757;
+    color: white !important;
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
+}
+
+/* Enhanced menu item animations */
+.xs-sidebar-group.isActive .sidebar-menu li {
+    animation: menuItemSlideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.xs-sidebar-group.isActive .sidebar-menu li:nth-child(1) { animation-delay: 0.1s; }
+.xs-sidebar-group.isActive .sidebar-menu li:nth-child(2) { animation-delay: 0.2s; }
+.xs-sidebar-group.isActive .sidebar-menu li:nth-child(3) { animation-delay: 0.3s; }
+.xs-sidebar-group.isActive .sidebar-menu li:nth-child(4) { animation-delay: 0.4s; }
+.xs-sidebar-group.isActive .sidebar-menu li:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes menuItemSlideIn {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* ========================================
+   ENHANCED MORE MENU
+======================================== */
+
+.sidebar-more-menu {
+    padding: 20px 30px !important;
+    background: rgba(255, 71, 87, 0.1);
+    border-radius: 15px;
+    margin: 0 20px 20px 20px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 71, 87, 0.2);
+}
+
+.sidebar-more-menu span {
+    color: #ff4757 !important;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-right: 15px;
+}
+
+.sidebar-more-menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-more-menu ul li {
+    margin-right: 15px;
+}
+
+.sidebar-more-menu ul li a {
+    color: rgba(255, 255, 255, 0.8) !important;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.sidebar-more-menu ul li a:hover {
+    color: #ff4757 !important;
+    text-shadow: 0 0 10px rgba(255, 71, 87, 0.5);
+}
+
+/* ========================================
+   ENHANCED SOCIAL SECTION
+======================================== */
+
+.sidebar-social {
+    padding: 20px 30px !important;
+    margin: 0 20px 20px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-social span {
+    color: #ff4757 !important;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.sidebar-social ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-social ul li {
+    margin-bottom: 12px;
+}
+
+.sidebar-social ul li a {
+    display: flex !important;
+    align-items: center !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 10px 15px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-social ul li a i {
+    width: 35px !important;
+    height: 35px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(255, 71, 87, 0.2);
+    border-radius: 8px;
+    margin-right: 12px !important;
+    font-size: 16px !important;
+    color: #ff4757 !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-social ul li a:hover {
+    color: #ff4757 !important;
+    background: rgba(255, 71, 87, 0.1);
+    transform: translateX(5px);
+}
+
+.sidebar-social ul li a:hover i {
+    background: #ff4757;
+    color: white !important;
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
+}
+
+/* ========================================
+   ENHANCED COPYRIGHT
+======================================== */
+
+.sidebar-copyright {
+    margin-top: auto;
+    padding: 20px 30px !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-size: 12px;
+    text-align: center !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================
+   MOBILE OPTIMIZATIONS
+======================================== */
+
+@media (max-width: 768px) {
+    .xs-sidebar-widget {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+    
+    .sidebar-logo {
+        padding: 30px 20px 15px !important;
+    }
+    
+    .sidebar-menu li a {
+        padding: 15px 16px !important;
+        font-size: 15px !important;
+    }
+    
+    .sidebar-menu li a i {
+        width: 35px !important;
+        height: 35px !important;
+        margin-right: 12px !important;
+        font-size: 16px !important;
+    }
+}
+
+/* ========================================
+   CUSTOM SCROLLBAR FOR SIDEBAR
+======================================== */
+
+.xs-sidebar-widget::-webkit-scrollbar {
+    width: 6px;
+}
+
+.xs-sidebar-widget::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.xs-sidebar-widget::-webkit-scrollbar-thumb {
+    background: #ff4757;
+    border-radius: 3px;
+}
+
+.xs-sidebar-widget::-webkit-scrollbar-thumb:hover {
+    background: #e63946;
+}
+
+/* ========================================
+   ENHANCED HAMBURGER BUTTON
+======================================== */
+
+.open_mobile_menu {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.open_mobile_menu:hover {
+    transform: scale(1.05);
+    background: rgba(255, 71, 87, 0.1) !important;
+    border-color: #ff4757 !important;
+}
+
+.open_mobile_menu::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 71, 87, 0.2);
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.open_mobile_menu:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+/* ========================================
+   LOADING ANIMATION FOR SIDEBAR
+======================================== */
+
+.sidebar-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(255, 71, 87, 0.3);
+    border-top: 3px solid #ff4757;
+    border-radius: 50%;
+    animation: sidebarLoading 1s linear infinite;
+    display: none;
+}
+
+@keyframes sidebarLoading {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ========================================
+   ACCESSIBILITY ENHANCEMENTS
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .xs-sidebar-widget,
+    .sidebar-widget-container,
+    .sidebar-menu li,
+    .sidebar-menu li a,
+    .close-side-widget {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Focus styles for accessibility */
+.sidebar-menu li a:focus,
+.close-side-widget:focus,
+.sidebar-more-menu ul li a:focus,
+.sidebar-social ul li a:focus {
+    outline: 2px solid #ff4757;
+    outline-offset: 2px;
+}

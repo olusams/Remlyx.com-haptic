@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .logo-test { margin: 20px 0; padding: 10px; border: 1px solid #ccc; }
+        img { max-width: 200px; height: auto; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Logo Test</h1>
+    
+    <div class="logo-test">
+        <h3>Testing remlyxlatloger.png:</h3>
+        <img src="assets/img/remlyxlatloger.png" alt="Test Logo" style="width: 200px;" onload="this.parentElement.innerHTML += '<p class=\'success\'>✓ PNG logo loaded successfully</p>'" onerror="this.parentElement.innerHTML += '<p class=\'error\'>✗ PNG logo failed to load</p>'">
+    </div>
+    
+    <div class="logo-test">
+        <h3>Testing logoremlyx.svg:</h3>
+        <img src="assets/img/logoremlyx.svg" alt="Test Logo SVG" style="width: 200px;" onload="this.parentElement.innerHTML += '<p class=\'success\'>✓ SVG logo loaded successfully</p>'" onerror="this.parentElement.innerHTML += '<p class=\'error\'>✗ SVG logo failed to load</p>'">
+    </div>
+    
+    <div class="logo-test">
+        <h3>File Check Results:</h3>
+        <p>Both logo files exist in assets/img/ directory:</p>
+        <ul>
+            <li>remlyxlatloger.png (9.2KB)</li>
+            <li>logoremlyx.svg (8.1KB)</li>
+        </ul>
+    </div>
+</body>
+</html> 

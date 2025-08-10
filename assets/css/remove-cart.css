@@ -1,0 +1,197 @@
+/* ===========================================
+   REMOVE CART FUNCTIONALITY
+   Hide all cart-related elements
+   =========================================== */
+
+/* ===== HIDE ALL CART BUTTONS ===== */
+.cart-btn,
+.cart_btn,
+.bi-header-cta-btn-grp .cart-btn,
+.hap-header-cta-btn-grp .cart-btn,
+.hpt-cart-btn-1,
+.cart-btn-2,
+.hpt-header-1-action .hpt-cart-btn-1,
+.hpt-header-2-action .cart-btn-2 {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* ===== HIDE CART SIDEBAR ===== */
+.cart_sidebar,
+.cart-sidebar,
+.cart_sidebar_top,
+.cart_sidebar_bottom,
+.cart_sidebar_button {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* ===== HIDE CART ITEMS ===== */
+.cart_item,
+.cart-item,
+.cart_item .item_image,
+.cart_item .item_title,
+.cart_item .item_price,
+.cart_item .remove_btn {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* ===== HIDE SHOPPING CART ICONS ===== */
+.fa-shopping-cart,
+.fa-shopping-bag,
+.fa-cart-plus,
+.fa-cart-arrow-down,
+.cart-icon,
+.shopping-cart,
+[class*="cart"],
+[id*="cart"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* ===== HIDE ANY CART COUNTERS/BADGES ===== */
+.cart-btn span,
+.cart_btn span,
+.cart-counter,
+.cart-badge,
+.cart-count {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* ===== HIDE CART RELATED LINKS ===== */
+a[href*="cart"],
+a[href*="shopping"],
+a[href*="checkout"],
+.cart-link,
+.shopping-link {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* ===== HIDE E-COMMERCE ELEMENTS ===== */
+.add-to-cart,
+.add_to_cart,
+.addtocart,
+.buy-now,
+.purchase-btn,
+.shop-btn,
+.ecommerce-btn {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* ===== HIDE PRICE ELEMENTS IF CART-RELATED ===== */
+.cart-total,
+.cart_total,
+.total_price,
+.cart-subtotal,
+.cart-price {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* ===== HIDE ANY REMAINING CART ELEMENTS ===== */
+[data-cart],
+[data-shopping],
+.cart-widget,
+.cart-dropdown,
+.cart-overlay,
+.mini-cart,
+.minicart {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* ===== ADJUST HEADER SPACING IF CART WAS REMOVED ===== */
+/* Ensure proper spacing in header after cart removal */
+.bi-header-cta-btn-grp,
+.hap-header-cta-btn-grp,
+.hpt-header-1-action,
+.hpt-header-2-action {
+    gap: 15px !important;
+}
+
+/* Remove any empty spaces left by hidden cart elements */
+.bi-header-cta-btn-grp::after,
+.hap-header-cta-btn-grp::after {
+    display: none !important;
+}
+
+/* ===== MOBILE CART REMOVAL ===== */
+@media (max-width: 991px) {
+    .mobile-cart,
+    .mobile-cart-btn,
+    .mobile_cart,
+    .m-cart-btn {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+    }
+}
+
+/* ===== PREVENT CART FUNCTIONALITY ===== */
+/* Disable any JavaScript cart functions by hiding triggers */
+.cart-trigger,
+.cart-toggle,
+.open-cart,
+.show-cart,
+[onclick*="cart"],
+[onclick*="Cart"],
+[onclick*="shopping"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* ===== CLEAN UP OFFCANVAS CART ===== */
+.offcanvas-cart,
+.offcanvas.cart,
+.sidebar-cart,
+.cart-offcanvas {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* ===== WooCommerce CART REMOVAL (if applicable) ===== */
+.woocommerce-cart,
+.wc-cart,
+.cart-contents,
+.cart-count,
+.minicart_count {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* ===== ENSURE NO CART ELEMENTS REMAIN ===== */
+/* Catch-all for any missed cart elements */
+*[class*="cart" i]:not(.card):not(.cart-esian):not(.card-*):not(.discard),
+*[id*="cart" i]:not(.card):not(.cart-esian):not(.card-*):not(.discard) {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* Exception: Don't hide cart-esian coordinates or card elements */
+.card,
+.card-*,
+[class*="card"],
+.cart-esian,
+.discard {
+    display: initial !important;
+    visibility: initial !important;
+    opacity: initial !important;
+}

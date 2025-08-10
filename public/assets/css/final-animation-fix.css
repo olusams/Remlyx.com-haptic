@@ -1,0 +1,269 @@
+/* Final Animation Fix - Comprehensive Solution */
+
+/* ========================================
+   GLOBAL ANIMATION RESET
+======================================== */
+
+/* Disable all problematic animations globally */
+*, *::before, *::after {
+    -webkit-text-stroke: none !important;
+    text-stroke: none !important;
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+    transition-duration: 0.3s !important;
+}
+
+/* ========================================
+   HIDE PROBLEMATIC SECTIONS
+======================================== */
+
+/* Hide problematic text scroll elements, but allow clean scroll */
+[class*="sliding-text"],
+[class*="marquee"],
+[id*="company-title"],
+[class*="company-title"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+}
+
+/* Allow clean text scroll to work */
+#bi-text-scroll-1,
+.bi-text-scroll-section-1,
+.bi-text-scroll-content,
+.bi-text-scroll-item-1 {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+    overflow: visible !important;
+}
+
+/* ========================================
+   CLEAN TEXT RENDERING
+======================================== */
+
+/* Ensure all text is rendered cleanly */
+h1, h2, h3, h4, h5, h6, p, span, div, a {
+    -webkit-text-stroke: none !important;
+    text-stroke: none !important;
+    animation: none !important;
+    transform: none !important;
+}
+
+/* Remove any problematic pseudo-elements */
+h1::before, h1::after,
+h2::before, h2::after,
+h3::before, h3::after,
+.text-segment::before, .text-segment::after,
+[data-text]::before, [data-text]::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* ========================================
+   WOW.JS ANIMATION FIXES
+======================================== */
+
+/* Disable WOW.js animations that might be causing issues */
+.wow {
+    animation: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+}
+
+/* Specific WOW animation classes */
+.fadeIn, .fadeInUp, .fadeInDown, .fadeInLeft, .fadeInRight,
+.slideInUp, .slideInDown, .bounceIn, .zoomIn, .rotateIn {
+    animation: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+}
+
+/* ========================================
+   GSAP ANIMATION FIXES
+======================================== */
+
+/* Disable GSAP-based animations */
+[data-aos], [data-sal], [data-animation] {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+}
+
+/* ========================================
+   SCROLL TRIGGER FIXES
+======================================== */
+
+/* Disable scroll-triggered animations */
+[class*="scroll-"], [class*="trigger-"], [class*="reveal-"] {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* ========================================
+   SPLIT TEXT FIXES
+======================================== */
+
+/* Clean up split text animations */
+.split-text, .split-char, .split-word, .split-line {
+    animation: none !important;
+    transform: none !important;
+}
+
+/* ========================================
+   MODERN SAFE ANIMATIONS
+======================================== */
+
+/* Enable only safe, controlled animations */
+.safe-hover-effect {
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.safe-hover-effect:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
+}
+
+.safe-fade-in {
+    opacity: 0;
+    animation: safeFadeIn 0.6s ease forwards !important;
+}
+
+@keyframes safeFadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* ========================================
+   BUTTON ANIMATIONS (SAFE)
+======================================== */
+
+/* Safe button animations */
+.btn, .theme-btn, .bi-btn-main {
+    transition: all 0.3s ease !important;
+    animation: none !important;
+}
+
+.btn:hover, .theme-btn:hover, .bi-btn-main:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2) !important;
+}
+
+/* ========================================
+   CARD ANIMATIONS (SAFE)
+======================================== */
+
+/* Safe card hover effects */
+.service-card, .team-card, .portfolio-item, .blog-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    animation: none !important;
+}
+
+.service-card:hover, .team-card:hover, .portfolio-item:hover, .blog-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+}
+
+/* ========================================
+   LOADING STATES (SAFE)
+======================================== */
+
+/* Safe loading animation */
+.loading-spinner {
+    animation: safeRotate 1s linear infinite !important;
+}
+
+@keyframes safeRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ========================================
+   RESPONSIVE FIXES
+======================================== */
+
+/* Ensure animations work properly on mobile */
+@media (max-width: 768px) {
+    *, *::before, *::after {
+        animation-duration: 0s !important;
+        transition-duration: 0.2s !important;
+    }
+    
+    /* Disable complex animations on mobile */
+    .complex-animation {
+        animation: none !important;
+        transform: none !important;
+    }
+}
+
+/* ========================================
+   ACCESSIBILITY FIXES
+======================================== */
+
+/* Respect user preferences for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* ========================================
+   FORCE CLEAN STATE
+======================================== */
+
+/* Force all elements to clean state */
+body {
+    overflow-x: hidden;
+}
+
+/* Prevent any text from creating duplicates */
+[data-text], [data-content], [data-before], [data-after] {
+    position: static !important;
+}
+
+/* Ensure no hidden duplicates */
+.hidden, .sr-only, .visually-hidden {
+    display: none !important;
+}
+
+/* ========================================
+   PERFORMANCE OPTIMIZATIONS
+======================================== */
+
+/* Optimize animations for performance */
+.optimized-animation {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+/* Disable expensive filters and effects */
+.expensive-effect {
+    filter: none !important;
+    backdrop-filter: none !important;
+}
+
+/* ========================================
+   DEBUG HELPERS
+======================================== */
+
+/* Debug mode - show animation issues */
+.debug-animations * {
+    outline: 1px solid red !important;
+    animation-duration: 10s !important;
+}
+
+/* Clean production mode */
+.production-ready {
+    animation-duration: 0s !important;
+    transition-duration: 0.3s !important;
+}

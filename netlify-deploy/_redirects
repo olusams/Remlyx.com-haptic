@@ -1,0 +1,34 @@
+# Netlify _redirects file for clean URLs and routing
+
+# Clean URL redirects (remove .html extension)
+/about              /About.html           200
+/services           /Services.html        200
+/portfolio          /Portfolio.html       200
+/blog               /Blog.html            200
+/contact            /Contact.html         200
+/testimonials       /Testimonials.html    200
+/faq                /FAQ.html             200
+/privacy            /Privacy.html         200
+/terms              /Terms.html           200
+/agreement          /Agreement.html       200
+
+# Legacy redirects (if URLs change)
+/about-us           /About.html           301
+/our-services       /Services.html        301
+/work               /Portfolio.html       301
+/projects           /Portfolio.html       301
+/news               /Blog.html            301
+/get-in-touch       /Contact.html         301
+/contact-us         /Contact.html         301
+
+# Form submissions
+/contact-form       /Contact.html         200
+
+# PHP file redirects (if migrating from PHP)
+/sendmail.php       /Contact.html         301
+
+# API proxy (if you add backend services later)
+/api/*              https://your-api-domain.com/api/:splat  200
+
+# Fallback for any unmatched routes to 404
+/*                  /404.html             404

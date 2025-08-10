@@ -1,0 +1,81 @@
+/* ===========================================
+   MOBILE NAVIGATION FIX
+   Overrides conflicting CSS and ensures mobile menu works
+   =========================================== */
+
+/* Force mobile menu button to be visible on mobile */
+@media (max-width: 991px) {
+    .mobile_menu_button {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: fixed !important;
+        top: 20px !important;
+        right: 20px !important;
+        z-index: 99998 !important;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        border: none !important;
+        border-radius: 12px !important;
+        width: 50px !important;
+        height: 50px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        cursor: pointer !important;
+        box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3) !important;
+    }
+    
+    .mobile_menu_button i {
+        color: #ffffff !important;
+        font-size: 20px !important;
+    }
+}
+
+/* Ensure mobile menu wrap is visible */
+.mobile_menu_wrap {
+    display: block !important;
+    z-index: 99999 !important;
+}
+
+/* Support both CSS systems */
+.mobile_menu_wrap.mobile_menu_on,
+.mobile_menu_wrap.active {
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+/* Original CSS compatibility - left-side positioning */
+.mobile_menu_wrap.mobile_menu_on .mobile_menu_content {
+    left: 0px !important;
+    right: auto !important;
+    -webkit-transition: all 0.7s ease-out !important;
+    transition: all 0.7s ease-out !important;
+}
+
+/* Enhanced CSS compatibility - right-side positioning */
+.mobile_menu_wrap.active .mobile_menu_content {
+    right: 0 !important;
+    left: auto !important;
+    transform: translateX(0) !important;
+}
+
+/* Ensure overlay works with both systems */
+.mobile_menu_wrap.mobile_menu_on .mobile_menu_overlay,
+.mobile_menu_wrap.active .mobile_menu_overlay {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Hide desktop navigation on mobile */
+@media (max-width: 991px) {
+    .bi-header-main-navigation {
+        display: none !important;
+    }
+}
+
+/* Show mobile navigation on mobile */
+@media (max-width: 991px) {
+    .mobile_menu {
+        display: block !important;
+    }
+}

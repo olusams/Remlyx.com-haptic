@@ -1,0 +1,126 @@
+/* Clean Single Line Text Scroll Animation */
+
+/* ========================================
+   TEXT SCROLL SECTION
+======================================== */
+
+.bi-text-scroll-section-1 {
+    background: #1a1a1a;
+    padding: 60px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.bi-text-scroll-content {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+
+.bi-text-scroll-item-1 {
+    display: inline-block;
+    animation: scrollText 20s linear infinite;
+    white-space: nowrap;
+}
+
+.bi-text-scroll-item-1 h3 {
+    display: inline-block;
+    font-size: 4rem;
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 2px #ff4757;
+    text-stroke: 2px #ff4757;
+    margin: 0;
+    padding: 0 100px 0 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1;
+}
+
+/* Animation for smooth horizontal scroll */
+@keyframes scrollText {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 1200px) {
+    .bi-text-scroll-item-1 h3 {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .bi-text-scroll-item-1 h3 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .bi-text-scroll-section-1 {
+        padding: 40px 0;
+    }
+    
+    .bi-text-scroll-item-1 h3 {
+        font-size: 2.5rem;
+        -webkit-text-stroke: 1.5px #ff4757;
+        text-stroke: 1.5px #ff4757;
+    }
+}
+
+@media (max-width: 576px) {
+    .bi-text-scroll-item-1 h3 {
+        font-size: 2rem;
+        -webkit-text-stroke: 1px #ff4757;
+        text-stroke: 1px #ff4757;
+        padding-right: 50px;
+    }
+}
+
+/* ========================================
+   HOVER EFFECTS
+======================================== */
+
+.bi-text-scroll-section-1:hover .bi-text-scroll-item-1 {
+    animation-play-state: paused;
+}
+
+.bi-text-scroll-item-1:hover h3 {
+    color: #ff4757;
+    -webkit-text-stroke: 2px transparent;
+    text-stroke: 2px transparent;
+    transition: all 0.3s ease;
+}
+
+/* ========================================
+   PERFORMANCE OPTIMIZATIONS
+======================================== */
+
+.bi-text-scroll-item-1 {
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .bi-text-scroll-item-1 {
+        animation: none;
+        transform: translateX(0);
+    }
+    
+    .bi-text-scroll-content {
+        text-align: center;
+    }
+}

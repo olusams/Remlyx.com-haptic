@@ -1,0 +1,185 @@
+/* Logo Enhancement and Prominence Styles */
+/* This file enhances logo visibility and fixes logo-related issues across all pages */
+
+/* Main Header Logo Enhancement */
+.bi-header-logo-main-menu .brand-logo {
+    max-width: 140px; /* Increased from 115px for better prominence */
+    transition: all 0.3s ease;
+}
+
+.bi-header-logo-main-menu .brand-logo img {
+    max-height: 50px; /* Increased from 40px for better visibility */
+    width: auto;
+    height: auto;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); /* Subtle shadow for depth */
+    transition: all 0.3s ease;
+}
+
+.bi-header-logo-main-menu .brand-logo:hover img {
+    transform: scale(1.05); /* Subtle hover effect */
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+}
+
+/* Mobile Logo Enhancement */
+.m-brand-logo {
+    max-width: 120px;
+    margin-bottom: 20px;
+}
+
+.m-brand-logo img {
+    max-height: 45px;
+    width: auto;
+    height: auto;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    transition: all 0.3s ease;
+}
+
+.m-brand-logo:hover img {
+    transform: scale(1.05);
+}
+
+/* Sidebar Logo Enhancement */
+.sidebar-logo {
+    max-width: 130px;
+    margin-bottom: 25px;
+}
+
+.sidebar-logo img {
+    max-height: 48px;
+    width: auto;
+    height: auto;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    transition: all 0.3s ease;
+}
+
+.sidebar-logo:hover img {
+    transform: scale(1.05);
+}
+
+/* Footer Logo Enhancement */
+.bi-footer-logo .brand-logo {
+    max-width: 150px;
+    margin: 0 auto 20px;
+}
+
+.bi-footer-logo .brand-logo img {
+    max-height: 55px;
+    width: auto;
+    height: auto;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    transition: all 0.3s ease;
+}
+
+.bi-footer-logo .brand-logo:hover img {
+    transform: scale(1.05);
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+}
+
+/* Sticky Header Logo Enhancement */
+.bi-header-section.sticky-on .brand-logo img {
+    max-height: 45px; /* Slightly smaller when sticky for better header fit */
+    transition: all 0.3s ease;
+}
+
+/* Logo Container Enhancements */
+.brand-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 0;
+}
+
+.brand-logo a {
+    display: block;
+    text-decoration: none;
+    outline: none;
+}
+
+/* Responsive Logo Adjustments */
+@media (max-width: 768px) {
+    .bi-header-logo-main-menu .brand-logo {
+        max-width: 120px;
+    }
+    
+    .bi-header-logo-main-menu .brand-logo img {
+        max-height: 45px;
+    }
+    
+    .m-brand-logo {
+        max-width: 110px;
+    }
+    
+    .m-brand-logo img {
+        max-height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .bi-header-logo-main-menu .brand-logo {
+        max-width: 100px;
+    }
+    
+    .bi-header-logo-main-menu .brand-logo img {
+        max-height: 40px;
+    }
+    
+    .m-brand-logo {
+        max-width: 100px;
+    }
+    
+    .m-brand-logo img {
+        max-height: 35px;
+    }
+}
+
+/* Logo Loading and Error Handling */
+.brand-logo img {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.brand-logo img[src*="rebirted.png"] {
+    /* Ensure the main logo is always visible */
+    min-width: 80px;
+    min-height: 30px;
+}
+
+/* Logo Focus States for Accessibility */
+.brand-logo a:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* Logo Animation for Page Load */
+@keyframes logoFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.brand-logo img {
+    animation: logoFadeIn 0.6s ease-out;
+}
+
+/* Enhanced Logo Hover Effects */
+.brand-logo:hover {
+    cursor: pointer;
+}
+
+.brand-logo:hover img {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Logo Quality Assurance */
+.brand-logo img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

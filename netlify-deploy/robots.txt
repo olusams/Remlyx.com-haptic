@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://remlyx.com/sitemap.xml
+
+# Disallow admin areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+
+# Allow important pages
+Allow: /index-4.html
+Allow: /about.html
+Allow: /contact.html
+Allow: /service.html
+Allow: /portfolio.html
+Allow: /blog-1.html
+
+# Crawl delay for better server performance
+Crawl-delay: 1 

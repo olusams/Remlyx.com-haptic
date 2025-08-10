@@ -1,0 +1,367 @@
+/* ===========================================
+   REMLYX-STYLE ABOUT SECTION ENHANCEMENTS
+   =========================================== */
+
+/* About Section Base Styles */
+.bi-about-section-4 {
+    position: relative;
+    padding: 120px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    overflow: hidden;
+}
+
+.bi-about-section-4::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+    pointer-events: none;
+}
+
+/* Enhanced About Content */
+.bi-about-content-4 {
+    position: relative;
+    z-index: 2;
+}
+
+/* About Text Area Enhancements */
+.bi-about-text-area-4 {
+    padding-right: 50px;
+}
+
+.bi-about-text-area-4 .bi-section-title-4 {
+    margin-bottom: 30px;
+}
+
+.bi-about-text-area-4 .subtitle {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.bi-about-text-area-4 h2 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 25px;
+    color: #2c3e50;
+}
+
+.bi-about-text-area-4 h2 .text-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.bi-about-text-area-4 p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #6c757d;
+    margin-bottom: 30px;
+}
+
+/* Enhanced Feature List */
+.bi-about-feature-4 {
+    margin-bottom: 40px;
+}
+
+.bi-about-feature-4 ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.bi-about-feature-4 ul li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.bi-about-feature-4 ul li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.bi-about-feature-4 ul li .icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.bi-about-feature-4 ul li .icon i {
+    color: white;
+    font-size: 24px;
+}
+
+.bi-about-feature-4 ul li .text h4 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+
+.bi-about-feature-4 ul li .text p {
+    font-size: 16px;
+    color: #6c757d;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Enhanced About Image Area */
+.bi-about-img-4 {
+    position: relative;
+    height: 100%;
+    min-height: 500px;
+}
+
+.bi-about-img-4 img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* About Statistics Section */
+.about-stats-section {
+    margin-top: 60px;
+    padding: 60px 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-stats-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.3;
+}
+
+.about-stats-content {
+    position: relative;
+    z-index: 2;
+}
+
+.stat-item {
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.stat-item .stat-number {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.stat-item .stat-label {
+    font-size: 18px;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+/* About CTA Section */
+.about-cta-section {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.about-cta-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.about-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+    color: white;
+    text-decoration: none;
+}
+
+.about-cta-phone {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.about-cta-phone .phone-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+}
+
+.about-cta-phone .phone-text {
+    color: white;
+}
+
+.about-cta-phone .phone-text span {
+    display: block;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.about-cta-phone .phone-text h4 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.about-cta-phone .phone-text h4 a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+    .bi-about-section-4 {
+        padding: 80px 0;
+    }
+    
+    .bi-about-text-area-4 {
+        padding-right: 0;
+        margin-bottom: 40px;
+    }
+    
+    .bi-about-img-4 {
+        min-height: 400px;
+    }
+    
+    .about-stats-section {
+        margin-top: 40px;
+        padding: 40px 0;
+    }
+    
+    .about-cta-section {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .bi-about-section-4 {
+        padding: 60px 0;
+    }
+    
+    .bi-about-feature-4 ul li {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px 20px;
+    }
+    
+    .bi-about-feature-4 ul li .icon {
+        margin-right: 0;
+        margin-bottom: 15px;
+        align-self: center;
+    }
+    
+    .bi-about-img-4 {
+        min-height: 300px;
+    }
+    
+    .stat-item {
+        margin-bottom: 30px;
+    }
+}
+
+/* Animation Classes */
+.wow.fadeInUp {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.wow.fadeInRight {
+    animation: fadeInRight 0.8s ease-out;
+}
+
+.wow.zoomIn {
+    animation: zoomIn 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test SMEN-2 Image</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .hero-test {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 20px 0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .smen2-image {
+            position: absolute;
+            right: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            max-width: 300px;
+            width: auto;
+            height: auto;
+            z-index: 5;
+        }
+        .status {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🔍 SMEN-2 Image Test</h1>
+        
+        <div class="status" id="status">Loading...</div>
+        
+        <!-- Direct image test -->
+        <h3>Direct Image Test:</h3>
+        <img src="assets/img/slider/s-men2.png" alt="Direct Test" style="max-width: 200px; border: 2px solid #ccc;" 
+             onload="imageLoaded('direct')" onerror="imageError('direct')">
+        
+        <!-- Hero simulation -->
+        <h3>Hero Section Simulation:</h3>
+        <div class="hero-test">
+            <img id="heroImg" class="smen2-image" src="assets/img/slider/s-men2.png" alt="Hero SMEN-2" 
+                 onload="imageLoaded('hero')" onerror="imageError('hero')">
+            <div style="position: absolute; left: 50px; top: 50%; transform: translateY(-50%); color: white;">
+                <h2>Hero Text Area</h2>
+                <p>The SMEN-2 image should appear on the right</p>
+            </div>
+        </div>
+        
+        <!-- Alternative paths test -->
+        <h3>Alternative Paths Test:</h3>
+        <img src="./assets/img/slider/s-men2.png" alt="Path 1" style="max-width: 100px; margin: 5px;" 
+             onload="console.log('Path 1 success')" onerror="console.log('Path 1 failed')">
+        <img src="/assets/img/slider/s-men2.png" alt="Path 2" style="max-width: 100px; margin: 5px;" 
+             onload="console.log('Path 2 success')" onerror="console.log('Path 2 failed')">
+    </div>
+
+    <script>
+        let results = { direct: false, hero: false };
+        
+        function imageLoaded(type) {
+            results[type] = true;
+            updateStatus();
+            console.log(`✅ ${type} image loaded successfully`);
+        }
+        
+        function imageError(type) {
+            results[type] = false;
+            updateStatus();
+            console.error(`❌ ${type} image failed to load`);
+        }
+        
+        function updateStatus() {
+            const status = document.getElementById('status');
+            if (results.direct && results.hero) {
+                status.innerHTML = '✅ SMEN-2 image loads correctly! Issue is in main site CSS.';
+                status.className = 'status success';
+            } else if (!results.direct && !results.hero) {
+                status.innerHTML = '❌ SMEN-2 image file is missing or path is wrong.';
+                status.className = 'status error';
+            } else {
+                status.innerHTML = '⚠️ Mixed results - some paths work, others don\'t.';
+                status.className = 'status error';
+            }
+        }
+        
+        // Test with fetch
+        fetch('assets/img/slider/s-men2.png')
+            .then(response => {
+                console.log('Fetch status:', response.status);
+                if (!response.ok) {
+                    console.error('Fetch failed:', response.statusText);
+                }
+            })
+            .catch(error => console.error('Fetch error:', error));
+    </script>
+</body>
+</html>

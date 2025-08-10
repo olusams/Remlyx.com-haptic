@@ -1,0 +1,1 @@
+Folder deletion monitoring script

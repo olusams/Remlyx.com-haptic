@@ -1,0 +1,66 @@
+# Global headers for all files
+/*
+  # Security Headers
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), gyroscope=(), magnetometer=()
+  
+  # Performance Headers
+  Cache-Control: public, max-age=31536000
+  
+  # Additional Security
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+# HTML files - shorter cache
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google-analytics.com https://www.googletagmanager.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com;
+
+# CSS files - long cache with immutable
+/assets/css/*
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: text/css
+
+# Enhanced mobile navigation CSS
+/assets/css/mobile-fix.css
+  Cache-Control: public, max-age=86400
+  Content-Type: text/css
+
+# JavaScript files - long cache with immutable
+/assets/js/*
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: application/javascript
+
+# Enhanced mobile navigation JS
+/assets/js/mobile-menu.js
+  Cache-Control: public, max-age=86400
+  Content-Type: application/javascript
+
+# Images - long cache
+/assets/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Fonts - long cache
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+
+# Service Worker - no cache
+/sw.js
+  Cache-Control: no-cache, no-store, must-revalidate
+
+# Manifest - short cache
+/manifest.json
+  Cache-Control: public, max-age=86400
+  Content-Type: application/manifest+json
+
+# Sitemap and robots
+/sitemap.xml
+  Cache-Control: public, max-age=86400
+  Content-Type: application/xml
+
+/robots.txt
+  Cache-Control: public, max-age=86400
+  Content-Type: text/plain

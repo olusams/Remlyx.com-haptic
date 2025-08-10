@@ -1,0 +1,32 @@
+<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FFA500;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF8C00;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Trophy Base -->
+  <ellipse cx="40" cy="70" rx="25" ry="8" fill="url(#goldGradient)" filter="url(#shadow)"/>
+  
+  <!-- Trophy Stem -->
+  <rect x="38" y="45" width="4" height="25" fill="url(#goldGradient)" filter="url(#shadow)"/>
+  
+  <!-- Trophy Cup -->
+  <path d="M 20 45 Q 20 25 40 15 Q 60 25 60 45 L 60 50 L 20 50 Z" fill="url(#goldGradient)" filter="url(#shadow)"/>
+  
+  <!-- Trophy Handles -->
+  <path d="M 15 35 Q 10 30 15 25 Q 20 30 15 35" stroke="url(#goldGradient)" stroke-width="3" fill="none" filter="url(#shadow)"/>
+  <path d="M 65 35 Q 70 30 65 25 Q 60 30 65 35" stroke="url(#goldGradient)" stroke-width="3" fill="none" filter="url(#shadow)"/>
+  
+  <!-- Award Text -->
+  <text x="40" y="12" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" font-weight="bold" fill="#8B4513">YBA</text>
+  <text x="40" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="4" fill="#8B4513">2024</text>
+  
+  <!-- Shine Effect -->
+  <ellipse cx="35" cy="30" rx="8" ry="3" fill="rgba(255,255,255,0.3)"/>
+</svg> 

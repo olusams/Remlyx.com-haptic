@@ -1,0 +1,51 @@
+/* Emergency Loader Fix - Force Hide Stuck Preloader */
+
+/* Force hide preloader immediately */
+#preloader {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    z-index: -1 !important;
+}
+
+/* Ensure body is visible */
+body {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Make sure content is accessible */
+body.loaded {
+    overflow: visible !important;
+}
+
+/* Emergency fallback - hide any loader-like elements */
+.preloader,
+.loader,
+.loading,
+[id*="load"],
+[class*="load"] {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* Ensure page content is fully visible */
+main,
+.main-content,
+.content,
+.page-content {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+}
+
+/* Critical: Make sure hero section is visible */
+.bi-main-slider,
+.bi-main-slider-item-4,
+.hero-section {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+}

@@ -1,0 +1,155 @@
+[build]
+  # Build command (not needed for static sites, but good to have)
+  command = "echo 'Enhanced Remlyx website with mobile navigation - Ready for deployment!'"
+  
+  # Publish directory - the root of your site
+  publish = "."
+  
+  # Functions directory (if you add serverless functions later)
+  functions = "netlify/functions"
+
+[build.environment]
+  # Environment variables
+  NODE_VERSION = "18"
+  
+[build.processing]
+  # Skip processing of demo and test files
+  skip_processing = true
+
+# Redirect rules for clean URLs and SPA behavior
+[[redirects]]
+  # Handle .html extension removal
+  from = "/*.html"
+  to = "/:splat"
+  status = 301
+  force = false
+
+[[redirects]]
+  # Handle trailing slashes
+  from = "/*/"
+  to = "/:splat"
+  status = 301
+  force = false
+
+[[redirects]]
+  # Handle contact form submissions
+  from = "/contact"
+  to = "/Contact.html"
+  status = 200
+
+[[redirects]]
+  # Handle about page
+  from = "/about"
+  to = "/About.html"
+  status = 200
+
+[[redirects]]
+  # Handle services page
+  from = "/services"
+  to = "/Services.html"
+  status = 200
+
+[[redirects]]
+  # Handle portfolio page
+  from = "/portfolio"
+  to = "/Portfolio.html"
+  status = 200
+
+[[redirects]]
+  # Handle blog page
+  from = "/blog"
+  to = "/Blog.html"
+  status = 200
+
+[[redirects]]
+  # Handle testimonials page
+  from = "/testimonials"
+  to = "/Testimonials.html"
+  status = 200
+
+[[redirects]]
+  # Handle FAQ page
+  from = "/faq"
+  to = "/FAQ.html"
+  status = 200
+
+[[redirects]]
+  # Handle privacy page
+  from = "/privacy"
+  to = "/Privacy.html"
+  status = 200
+
+[[redirects]]
+  # Handle terms page
+  from = "/terms"
+  to = "/Terms.html"
+  status = 200
+
+# Demo and test pages
+[[redirects]]
+  from = "/mobile-demo"
+  to = "/mobile-navigation-enhanced-demo.html"
+  status = 200
+
+[[redirects]]
+  from = "/mobile-test"
+  to = "/test-mobile-navigation.html"
+  status = 200
+
+# Handle 404 errors
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+# Headers for security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Security headers
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    
+    # Performance headers
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    # HTML files shouldn't be cached as aggressively
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    # Service worker should not be cached
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/assets/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Form handling (if you have contact forms)
+[[forms]]
+  name = "contact"
+  action = "/thank-you"
+  method = "POST"

@@ -1,0 +1,169 @@
+/* Emergency Performance Fix CSS - Stop All Violations */
+
+/* ========================================
+   IMMEDIATE PERFORMANCE OPTIMIZATIONS
+======================================== */
+
+/* Disable all problematic animations immediately */
+*, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    -webkit-text-stroke: none !important;
+    text-stroke: none !important;
+    will-change: auto !important;
+    transform: translateZ(0) !important;
+}
+
+/* Force disable jQuery UI animations */
+.ui-effects-wrapper,
+.ui-effects-transfer,
+.ui-widget,
+.ui-datepicker {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* Disable WOW.js and animation libraries */
+.wow,
+.animate__animated,
+[class*="animate"],
+[class*="fade"],
+[class*="slide"],
+[class*="zoom"],
+[class*="bounce"],
+[class*="rotate"],
+[class*="flip"] {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+}
+
+/* Disable text animations that cause violations */
+[data-text],
+.text-animation,
+.animated-text,
+.marquee,
+.scroll-text,
+.typing-effect {
+    animation: none !important;
+    -webkit-text-stroke: none !important;
+    text-stroke: none !important;
+}
+
+/* Force hardware acceleration for critical elements */
+.bi-header-section,
+.bi-main-slider,
+.hero-section {
+    transform: translateZ(0);
+    will-change: transform;
+    contain: layout;
+}
+
+/* Optimize images and media */
+img,
+video,
+iframe {
+    will-change: auto;
+    transform: translateZ(0);
+}
+
+/* Disable expensive CSS features temporarily */
+.expensive-effect,
+[style*="filter"],
+[style*="backdrop-filter"],
+.blur-effect,
+.shadow-effect {
+    filter: none !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+}
+
+/* Performance-optimized scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+/* Disable problematic pseudo-elements */
+.problematic-before::before,
+.problematic-after::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* Force visibility for essential content */
+body,
+main,
+.content,
+.bi-main-slider-item-4,
+.bi-header-section {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+}
+
+/* Emergency text scroll fix */
+.bi-text-scroll-section-1 {
+    animation: none !important;
+}
+
+.bi-text-scroll-item-1 h3 {
+    animation: scrollTextOptimized 15s linear infinite !important;
+}
+
+@keyframes scrollTextOptimized {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Reduce motion for accessibility and performance */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Force GPU acceleration for smooth performance */
+.gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+/* Optimize layout to prevent reflows */
+.prevent-reflow {
+    contain: layout style;
+    will-change: auto;
+}
+
+/* Clean up any remaining problematic elements */
+.hidden-problematic {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Ensure smooth scrolling without violations */
+html {
+    scroll-behavior: auto !important;
+}
+
+/* Override any remaining animation libraries */
+.gsap-timeline,
+.tween-max,
+.animation-lib {
+    animation: none !important;
+    transition: none !important;
+}

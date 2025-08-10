@@ -1,0 +1,143 @@
+/* Text Animation Fix - Stop Repeating Outline Text */
+
+/* Hide problematic text scroll sections that are causing the repetition */
+#bi-text-scroll-1,
+.bi-text-scroll-section-1,
+.bi-text-scroll-content,
+.bi-text-scroll-item-1 {
+    display: none !important;
+}
+
+/* Hide company title section with sliding text */
+#company-title,
+.company-title-section,
+.sliding-text-container,
+.sliding-text-line {
+    display: none !important;
+}
+
+/* Fix any text outline effects that are causing duplication */
+.text-segment[data-text]::before,
+.text-segment[data-text]::after {
+    display: none !important;
+}
+
+/* Stop any CSS animations that might be causing text duplication */
+.company-name,
+.brand-intro h2 {
+    animation: none !important;
+    -webkit-text-stroke: none !important;
+    text-stroke: none !important;
+}
+
+/* Fix any pseudo-elements that might be creating outline text */
+h1::before,
+h1::after,
+h2::before,
+h2::after,
+h3::before,
+h3::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* Ensure clean text rendering */
+* {
+    -webkit-text-stroke: none !important;
+    text-stroke: none !important;
+}
+
+/* Fix marquee animations that might be causing issues */
+.marquee,
+.text-marquee,
+.scroll-text {
+    animation-play-state: paused !important;
+    display: none !important;
+}
+
+/* Stop any problematic keyframe animations */
+@keyframes slideText,
+@keyframes marquee,
+@keyframes textScroll,
+@keyframes slideInOut {
+    0%, 100% {
+        transform: none !important;
+        opacity: 1 !important;
+    }
+}
+
+/* Clean up any animation delays */
+[data-wow-delay],
+.wow {
+    animation-delay: 0s !important;
+    animation-duration: 0s !important;
+}
+
+/* Fix hero section if it has animation issues */
+.bi-main-slider-text h1,
+.bi-main-slider-text h2,
+.bi-main-slider-text h3 {
+    animation: none !important;
+    -webkit-text-stroke: none !important;
+    text-stroke: none !important;
+}
+
+/* Disable any problematic text effects */
+.text-effect,
+.text-animation,
+.animated-text {
+    animation: none !important;
+    -webkit-text-stroke: none !important;
+    text-stroke: none !important;
+}
+
+/* Stop any jQuery marquee plugins */
+.jquery-marquee {
+    animation: none !important;
+    transform: none !important;
+}
+
+/* Clean modern text styling without animation issues */
+.clean-text {
+    font-family: 'RecoletaAlt-SemiBold', sans-serif;
+    font-weight: 600;
+    color: #333;
+    line-height: 1.2;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    animation: none !important;
+    -webkit-text-stroke: none !important;
+    text-stroke: none !important;
+}
+
+/* Ensure headers are clean */
+h1, h2, h3, h4, h5, h6 {
+    -webkit-text-stroke: none !important;
+    text-stroke: none !important;
+    animation: none !important;
+}
+
+/* Stop any background text effects */
+body::before,
+body::after,
+.container::before,
+.container::after {
+    display: none !important;
+}
+
+/* Fix any CSS-generated content that might be duplicating text */
+[data-text]::before,
+[data-text]::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* Disable problematic JavaScript-generated animations */
+.gsap-animated,
+.split-text,
+.split-char {
+    animation: none !important;
+    -webkit-text-stroke: none !important;
+    text-stroke: none !important;
+}

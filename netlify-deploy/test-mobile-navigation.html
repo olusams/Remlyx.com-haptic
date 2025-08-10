@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Navigation Test - Remlyx</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/mobile-fix.css">
+    <style>
+        body {
+            padding-top: 100px;
+        }
+        .test-section {
+            padding: 50px 20px;
+            margin: 20px 0;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .viewport-info {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            background: #007bff;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 14px;
+            z-index: 100;
+        }
+        @media (max-width: 991px) {
+            .mobile-indicator {
+                background: #28a745 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Viewport indicator -->
+    <div class="viewport-info mobile-indicator">
+        <span id="viewport-width"></span>px width
+        <br><span id="device-type"></span>
+    </div>
+
+    <!-- Header (same structure as main site) -->
+    <header id="bi-header" class="bi-header-section header-style-one">
+        <div class="bi-header-content">
+            <div class="bi-header-logo-main-menu d-flex align-items-center justify-content-between">
+                <div class="brand-logo">
+                    <a href='index.html'><img src="assets/img/rebirted.png" alt="Remlyx - Web Design Agency Leeds"></a>
+                </div>
+                <div class="bi-header-main-menu-cta-area d-flex align-items-center">
+                    <div class="bi-header-main-navigation">
+                        <nav class="main-navigation clearfix ul-li">
+                            <ul id="main-nav" class="nav navbar-nav clearfix">
+                                <li><a href='index.html'>Home</a></li>
+                                <li><a href='About.html'>About</a></li>
+                                <li><a href='Services.html'>Services</a></li>
+                                <li><a href='Portfolio.html'>Portfolio</a></li>
+                                <li><a href='Blog.html'>Blog</a></li>
+                                <li><a href='Contact.html'>Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="bi-header-btn">
+                        <a class='theme-btn' href='Contact.html'>Get Quote</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu (same structure as main site) -->
+    <div class="mobile_menu position-relative">
+        <div class="mobile_menu_button open_mobile_menu">
+            <i class="fal fa-bars"></i>
+        </div>
+        <div class="mobile_menu_wrap">
+            <div class="mobile_menu_overlay open_mobile_menu"></div>
+            <div class="mobile_menu_content">
+                <div class="mobile_menu_close open_mobile_menu">
+                    <i class="fal fa-times"></i>
+                </div>
+                <div class="m-brand-logo">
+                    <a href='index.html'><img src="assets/img/rebirted.png" alt="Remlyx - Web Design Agency Leeds"></a>
+                </div>
+                <div class="mobile-search-bar position-relative">
+                    <form action="#">
+                        <input type="text" name="search" placeholder="Keywords">
+                        <button><i class="fal fa-search"></i></button>
+                    </form>
+                </div>
+                <nav class="mobile-main-navigation clearfix ul-li">
+                    <ul id="m-main-nav" class="nav navbar-nav clearfix">
+                        <li><a href='index.html'>Home</a></li>
+                        <li><a href='About.html'>About</a></li>
+                        <li><a href='Services.html'>Services</a></li>
+                        <li><a href='Portfolio.html'>Portfolio</a></li>
+                        <li><a href='Blog.html'>Blog</a></li>
+                        <li><a href='Contact.html'>Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="bi-mobile-header-social text-center">
+                    <a href="#"> <i class="fab fa-instagram"></i></a>
+                    <a href="#"> <i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.facebook.com/people/Remlyx/100069426878077/" target="_blank"> <i class="fab fa-facebook"></i></a>
+                    <a href="#"> <i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="test-section">
+            <h1>Mobile Navigation Test Page</h1>
+            <p>This page is designed to test the mobile navigation functionality.</p>
+            
+            <h3>Testing Instructions:</h3>
+            <ol>
+                <li><strong>Desktop View (Width > 991px):</strong>
+                    <ul>
+                        <li>Navigation menu should be visible in the header</li>
+                        <li>Mobile menu button should be hidden</li>
+                        <li>Viewport indicator should be blue</li>
+                    </ul>
+                </li>
+                <li><strong>Mobile View (Width ≤ 991px):</strong>
+                    <ul>
+                        <li>Desktop navigation should be hidden</li>
+                        <li>Mobile menu button (☰) should be visible in top right</li>
+                        <li>Viewport indicator should be green</li>
+                        <li>Click the menu button to open the slide-out menu</li>
+                        <li>Menu should slide in from the left</li>
+                        <li>Click overlay or X to close the menu</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3>How to Test:</h3>
+            <ul>
+                <li><strong>Browser Resize:</strong> Drag the browser window to make it narrower/wider</li>
+                <li><strong>Developer Tools:</strong> Press F12 → Click device toolbar icon → Select mobile device</li>
+                <li><strong>Mobile Device:</strong> Open this page on your phone or tablet</li>
+            </ul>
+
+            <div class="alert alert-info" style="background: #d1ecf1; padding: 15px; border-radius: 4px; margin-top: 20px;">
+                <strong>Current Status:</strong> The mobile navigation has been implemented and should work across all devices and screen sizes.
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>Responsive Breakpoints</h2>
+            <ul>
+                <li><strong>Desktop:</strong> 992px and above</li>
+                <li><strong>Tablet:</strong> 768px - 991px</li>
+                <li><strong>Mobile:</strong> Below 768px</li>
+            </ul>
+        </div>
+
+        <div class="test-section">
+            <h2>Features Implemented</h2>
+            <ul>
+                <li>✅ Mobile menu button visibility</li>
+                <li>✅ Slide-out navigation menu</li>
+                <li>✅ Overlay background</li>
+                <li>✅ Close functionality (X button and overlay click)</li>
+                <li>✅ Keyboard support (ESC to close)</li>
+                <li>✅ Touch gestures (swipe to close)</li>
+                <li>✅ Accessibility features</li>
+                <li>✅ Smooth animations</li>
+                <li>✅ Body scroll prevention when menu is open</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/mobile-menu.js"></script>
+    
+    <!-- Viewport width display script -->
+    <script>
+        function updateViewportInfo() {
+            const width = window.innerWidth;
+            const widthElement = document.getElementById('viewport-width');
+            const typeElement = document.getElementById('device-type');
+            
+            if (widthElement) widthElement.textContent = width;
+            
+            if (typeElement) {
+                if (width >= 992) {
+                    typeElement.textContent = 'Desktop';
+                } else if (width >= 768) {
+                    typeElement.textContent = 'Tablet';
+                } else {
+                    typeElement.textContent = 'Mobile';
+                }
+            }
+        }
+        
+        // Update on load and resize
+        window.addEventListener('load', updateViewportInfo);
+        window.addEventListener('resize', updateViewportInfo);
+    </script>
+</body>
+</html>

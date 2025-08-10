@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Hero Image - S-Men2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f5f5f5;
+        }
+        .debug-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .test-section {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .test-section h3 {
+            color: #333;
+            margin-top: 0;
+        }
+        .image-container {
+            border: 2px dashed #ccc;
+            padding: 20px;
+            margin: 10px 0;
+            text-align: center;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .warning { background: #fff3cd; color: #856404; }
+        .info { background: #d1ecf1; color: #0c5460; }
+        .hero-simulation {
+            position: relative;
+            height: 400px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .slider_men {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 5;
+        }
+        .slider_men img {
+            max-width: 300px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="debug-container">
+        <h1>🔍 Debug Hero Image (S-Men2)</h1>
+        <p><strong>Purpose:</strong> Diagnose why the s-men2.png hero image is not showing</p>
+        
+        <div class="test-section">
+            <h3>Test 1: Direct Image Load</h3>
+            <div class="image-container">
+                <img id="directImage" src="assets/img/slider/s-men2.png" alt="S-Men2 Direct Load" 
+                     onload="imageLoaded('direct')" onerror="imageError('direct')" style="max-width: 300px;">
+                <div id="directStatus" class="status info">Loading direct image...</div>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h3>Test 2: Alternative Paths</h3>
+            <div class="image-container">
+                <p>Testing different possible paths:</p>
+                <img id="altImage1" src="./assets/img/slider/s-men2.png" alt="Alt Path 1" 
+                     onload="imageLoaded('alt1')" onerror="imageError('alt1')" style="max-width: 200px; margin: 5px;">
+                <img id="altImage2" src="/assets/img/slider/s-men2.png" alt="Alt Path 2" 
+                     onload="imageLoaded('alt2')" onerror="imageError('alt2')" style="max-width: 200px; margin: 5px;">
+                <div id="altStatus" class="status info">Testing alternative paths...</div>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h3>Test 3: Hero Section Simulation</h3>
+            <div class="hero-simulation">
+                <span class="slider_men">
+                    <img id="heroImage" src="assets/img/slider/s-men2.png" alt="Hero Simulation" 
+                         onload="imageLoaded('hero')" onerror="imageError('hero')">
+                </span>
+                <div style="color: white; text-align: center; z-index: 10;">
+                    <h2>Hero Section Simulation</h2>
+                    <p>This simulates how the image should appear in the actual hero section</p>
+                </div>
+            </div>
+            <div id="heroStatus" class="status info">Loading hero simulation...</div>
+        </div>
+        
+        <div class="test-section">
+            <h3>Test 4: Network & File Info</h3>
+            <div id="networkInfo" class="status info">
+                <p><strong>Current URL:</strong> <span id="currentUrl"></span></p>
+                <p><strong>Image URL:</strong> <span id="imageUrl"></span></p>
+                <p><strong>Fetch Test:</strong> <span id="fetchResult">Testing...</span></p>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h3>Test 5: Other Slider Images</h3>
+            <div class="image-container">
+                <p>Testing other images from the slider folder:</p>
+                <img src="assets/img/slider/s-circle.png" alt="S-Circle" 
+                     onload="console.log('s-circle.png loaded')" onerror="console.log('s-circle.png failed')" 
+                     style="max-width: 100px; margin: 5px;">
+                <div class="status info">If this circle shows, the slider folder is accessible</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let loadResults = {
+            direct: 'pending',
+            alt1: 'pending',
+            alt2: 'pending',
+            hero: 'pending'
+        };
+
+        function imageLoaded(type) {
+            loadResults[type] = 'success';
+            updateStatus(type, 'success', '✅ Image loaded successfully!');
+            console.log(`${type} image loaded successfully`);
+        }
+
+        function imageError(type) {
+            loadResults[type] = 'failed';
+            updateStatus(type, 'error', '❌ Failed to load image!');
+            console.error(`${type} image failed to load`);
+        }
+
+        function updateStatus(type, status, message) {
+            const statusEl = document.getElementById(type + 'Status');
+            statusEl.className = 'status ' + (status === 'success' ? 'success' : 'error');
+            statusEl.innerHTML = message;
+        }
+
+        // Set current URL info
+        document.getElementById('currentUrl').textContent = window.location.href;
+        
+        // Set image URL
+        const imageUrl = new URL('assets/img/slider/s-men2.png', window.location.href).href;
+        document.getElementById('imageUrl').textContent = imageUrl;
+
+        // Test with fetch
+        fetch('assets/img/slider/s-men2.png')
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById('fetchResult').textContent = '✅ File accessible via fetch';
+                    document.getElementById('fetchResult').style.color = 'green';
+                } else {
+                    document.getElementById('fetchResult').textContent = `❌ Fetch failed: ${response.status} ${response.statusText}`;
+                    document.getElementById('fetchResult').style.color = 'red';
+                }
+            })
+            .catch(error => {
+                document.getElementById('fetchResult').textContent = `❌ Fetch error: ${error.message}`;
+                document.getElementById('fetchResult').style.color = 'red';
+            });
+
+        // Check all results after 3 seconds
+        setTimeout(() => {
+            console.log('Load Results:', loadResults);
+            
+            // Show summary
+            const allFailed = Object.values(loadResults).every(result => result === 'failed');
+            const allSuccess = Object.values(loadResults).every(result => result === 'success');
+            
+            if (allFailed) {
+                console.error('❌ ALL IMAGE LOADS FAILED - File likely missing or path incorrect');
+            } else if (allSuccess) {
+                console.log('✅ ALL IMAGES LOADED - Issue might be CSS/animation related');
+            } else {
+                console.warn('⚠️ MIXED RESULTS - Some paths work, others don\'t');
+            }
+        }, 3000);
+    </script>
+</body>
+</html>

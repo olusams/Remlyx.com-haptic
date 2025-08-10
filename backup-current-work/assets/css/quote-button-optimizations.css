@@ -1,0 +1,373 @@
+/* ===========================================
+   OPTIMIZED GET QUOTE BUTTON STYLES
+   =========================================== */
+
+/* Global Quote Button Base Styles */
+.quote-btn {
+    background: linear-gradient(135deg, #EB5C18 0%, #F95055 45.72%, #CA2DB8 100%);
+    color: #ffffff;
+    padding: 16px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(235, 92, 24, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 160px;
+    height: 52px;
+    cursor: pointer;
+    font-family: var(--heading, 'Poppins', sans-serif);
+    z-index: 1;
+}
+
+/* Shimmer Effect */
+.quote-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+    z-index: -1;
+}
+
+/* Hover Effects */
+.quote-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(235, 92, 24, 0.4);
+    border-color: rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, #F95055 0%, #CA2DB8 45.72%, #EB5C18 100%);
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.quote-btn:hover::before {
+    left: 100%;
+}
+
+/* Active State */
+.quote-btn:active {
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(235, 92, 24, 0.3);
+}
+
+/* Focus States for Accessibility */
+.quote-btn:focus {
+    outline: 3px solid rgba(235, 92, 24, 0.5);
+    outline-offset: 2px;
+    transform: translateY(-2px);
+}
+
+/* Header Quote Button Specific Styles */
+.bi-header-btn .theme-btn {
+    background: linear-gradient(135deg, #EB5C18, #F95055, #CA2DB8);
+    color: #ffffff;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(235, 92, 24, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 140px;
+    height: 48px;
+    cursor: pointer;
+    font-family: var(--heading, 'Poppins', sans-serif);
+}
+
+.bi-header-btn .theme-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.bi-header-btn .theme-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(235, 92, 24, 0.4);
+    border-color: rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, #F95055, #CA2DB8, #EB5C18);
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.bi-header-btn .theme-btn:hover::before {
+    left: 100%;
+}
+
+.bi-header-btn .theme-btn:active {
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(235, 92, 24, 0.3);
+}
+
+.bi-header-btn .theme-btn:focus {
+    outline: 3px solid rgba(235, 92, 24, 0.5);
+    outline-offset: 2px;
+    transform: translateY(-2px);
+}
+
+/* Footer CTA Quote Button Styles */
+.bi-footer-cta .bi-btn-4 a {
+    background: linear-gradient(135deg, #EB5C18 0%, #F95055 45.72%, #CA2DB8 100%);
+    color: #ffffff;
+    padding: 18px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(235, 92, 24, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 180px;
+    height: 56px;
+    cursor: pointer;
+    font-family: var(--heading, 'Poppins', sans-serif);
+    z-index: 1;
+}
+
+.bi-footer-cta .bi-btn-4 a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+    z-index: -1;
+}
+
+.bi-footer-cta .bi-btn-4 a:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 18px 40px rgba(235, 92, 24, 0.4);
+    border-color: rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, #F95055 0%, #CA2DB8 45.72%, #EB5C18 100%);
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.bi-footer-cta .bi-btn-4 a:hover::before {
+    left: 100%;
+}
+
+.bi-footer-cta .bi-btn-4 a:active {
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(235, 92, 24, 0.3);
+}
+
+.bi-footer-cta .bi-btn-4 a:focus {
+    outline: 3px solid rgba(235, 92, 24, 0.5);
+    outline-offset: 2px;
+    transform: translateY(-2px);
+}
+
+/* Arrow Icon Styling */
+.bi-btn-4 a span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-left: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    transition: all 0.3s ease;
+}
+
+.bi-btn-4 a:hover span {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateX(3px);
+}
+
+.bi-btn-4 a span img {
+    width: 16px;
+    height: 16px;
+    filter: brightness(0) invert(1);
+    transition: all 0.3s ease;
+}
+
+/* Loading State */
+.quote-btn.loading {
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.quote-btn.loading::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top: 2px solid #ffffff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Pulse Animation for Attention */
+@keyframes quotePulse {
+    0% {
+        box-shadow: 0 8px 25px rgba(235, 92, 24, 0.3);
+    }
+    50% {
+        box-shadow: 0 8px 25px rgba(235, 92, 24, 0.5), 0 0 0 10px rgba(235, 92, 24, 0.1);
+    }
+    100% {
+        box-shadow: 0 8px 25px rgba(235, 92, 24, 0.3);
+    }
+}
+
+.quote-btn.attention {
+    animation: quotePulse 2s infinite;
+}
+
+/* Slide-in Animation */
+@keyframes quoteSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(30px) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+.quote-btn {
+    animation: quoteSlideIn 0.6s ease-out 0.3s both;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .quote-btn {
+        padding: 14px 24px;
+        font-size: 14px;
+        min-width: 140px;
+        height: 48px;
+    }
+    
+    .bi-header-btn .theme-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+        min-width: 120px;
+        height: 42px;
+    }
+    
+    .bi-footer-cta .bi-btn-4 a {
+        padding: 16px 32px;
+        font-size: 15px;
+        min-width: 160px;
+        height: 52px;
+    }
+}
+
+@media (max-width: 480px) {
+    .quote-btn {
+        padding: 12px 20px;
+        font-size: 13px;
+        min-width: 120px;
+        height: 44px;
+    }
+    
+    .bi-header-btn .theme-btn {
+        padding: 8px 16px;
+        font-size: 13px;
+        min-width: 100px;
+        height: 38px;
+    }
+    
+    .bi-footer-cta .bi-btn-4 a {
+        padding: 14px 28px;
+        font-size: 14px;
+        min-width: 140px;
+        height: 48px;
+    }
+}
+
+/* Sticky Header Optimization */
+.bi-header-section.sticky-on .bi-header-btn .theme-btn {
+    padding: 10px 24px;
+    height: 44px;
+    font-size: 14px;
+    box-shadow: 0 6px 20px rgba(235, 92, 24, 0.25);
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .quote-btn {
+        box-shadow: 0 8px 25px rgba(235, 92, 24, 0.4);
+    }
+    
+    .quote-btn:hover {
+        box-shadow: 0 15px 35px rgba(235, 92, 24, 0.5);
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .quote-btn {
+        border: 3px solid #ffffff;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    }
+    
+    .quote-btn:hover {
+        border-color: #ffffff;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .quote-btn,
+    .bi-header-btn .theme-btn,
+    .bi-footer-cta .bi-btn-4 a {
+        transition: none;
+        animation: none;
+    }
+    
+    .quote-btn:hover,
+    .bi-header-btn .theme-btn:hover,
+    .bi-footer-cta .bi-btn-4 a:hover {
+        transform: none;
+    }
+    
+    .quote-btn::before,
+    .bi-header-btn .theme-btn::before,
+    .bi-footer-cta .bi-btn-4 a::before {
+        display: none;
+    }
+} 

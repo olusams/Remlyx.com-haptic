@@ -1,0 +1,158 @@
+/* Mobile Menu Fix CSS */
+
+/* Ensure mobile menu button is visible and properly positioned */
+.mobile_menu_button {
+    display: none !important;
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    z-index: 9998 !important;
+    background: #fff !important;
+    border: 2px solid #eb5c18 !important;
+    border-radius: 8px !important;
+    padding: 12px !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.3s ease !important;
+}
+
+.mobile_menu_button:hover {
+    background: #eb5c18 !important;
+    color: #fff !important;
+    transform: scale(1.05) !important;
+}
+
+.mobile_menu_button i {
+    font-size: 18px !important;
+    color: inherit !important;
+}
+
+/* Ensure mobile menu wrapper has proper positioning */
+.mobile_menu_wrap {
+    position: fixed !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100vh !important;
+    z-index: 9999 !important;
+    transition: left 0.4s ease !important;
+}
+
+.mobile_menu_wrap.mobile_menu_on {
+    left: 0 !important;
+}
+
+/* Mobile menu overlay */
+.mobile_menu_overlay {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.6) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: all 0.3s ease !important;
+}
+
+.mobile_menu_wrap.mobile_menu_on .mobile_menu_overlay {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Mobile menu content */
+.mobile_menu_content {
+    position: absolute !important;
+    top: 0 !important;
+    right: -350px !important;
+    width: 350px !important;
+    max-width: 85vw !important;
+    height: 100% !important;
+    background: #fff !important;
+    padding: 30px 20px !important;
+    overflow-y: auto !important;
+    transition: right 0.4s ease !important;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+.mobile_menu_wrap.mobile_menu_on .mobile_menu_content {
+    right: 0 !important;
+}
+
+/* Mobile menu close button */
+.mobile_menu_close {
+    position: absolute !important;
+    top: 20px !important;
+    right: 20px !important;
+    background: none !important;
+    border: none !important;
+    font-size: 24px !important;
+    cursor: pointer !important;
+    color: #333 !important;
+    padding: 10px !important;
+    border-radius: 50% !important;
+    transition: all 0.3s ease !important;
+}
+
+.mobile_menu_close:hover {
+    background: #f0f0f0 !important;
+    color: #eb5c18 !important;
+}
+
+/* Mobile navigation links */
+.mobile-main-navigation {
+    margin-top: 60px !important;
+}
+
+.mobile-main-navigation ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.mobile-main-navigation li {
+    margin-bottom: 5px !important;
+}
+
+.mobile-main-navigation a {
+    display: block !important;
+    padding: 15px 0 !important;
+    color: #333 !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    border-bottom: 1px solid #eee !important;
+    transition: all 0.3s ease !important;
+}
+
+.mobile-main-navigation a:hover,
+.mobile-main-navigation li.active a {
+    color: #eb5c18 !important;
+    padding-left: 10px !important;
+}
+
+/* Hide mobile menu button on desktop */
+@media (min-width: 992px) {
+    .mobile_menu_button {
+        display: none !important;
+    }
+    
+    .mobile_menu_wrap {
+        display: none !important;
+    }
+}
+
+/* Show mobile menu button on mobile/tablet */
+@media (max-width: 991px) {
+    .mobile_menu_button {
+        display: block !important;
+    }
+    
+    /* Hide desktop navigation */
+    .bi-header-main-navigation {
+        display: none !important;
+    }
+    
+    .bi-header-btn {
+        display: none !important;
+    }
+}

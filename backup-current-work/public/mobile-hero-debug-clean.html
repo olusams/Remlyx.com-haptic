@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Hero Debug - Ultra Clean</title>
+    
+    <!-- Only Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    
+    <style>
+        /* Debug styles */
+        .debug-info {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            z-index: 9999;
+        }
+        
+        .debug-element {
+            border: 2px solid red !important;
+            background: rgba(255,0,0,0.1) !important;
+        }
+        
+        .debug-element::before {
+            content: attr(class);
+            position: absolute;
+            top: -20px;
+            left: 0;
+            background: red;
+            color: white;
+            padding: 2px 5px;
+            font-size: 10px;
+            z-index: 10000;
+        }
+        
+        /* Clean hero styles */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+        
+        .hero-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            max-width: 1200px;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .hero-image {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin: 20px auto;
+            display: block;
+            filter: brightness(1.1) contrast(1.05);
+        }
+        
+        .hero-content {
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .trust-badge {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Mobile-first responsive */
+        @media (min-width: 768px) {
+            .hero-container {
+                flex-direction: row;
+                text-align: left;
+                gap: 40px;
+            }
+            
+            .hero-content {
+                flex: 1;
+                margin-bottom: 0;
+            }
+            
+            .hero-image {
+                flex: 1;
+                max-width: 400px;
+            }
+            
+            .hero-buttons {
+                flex-direction: row;
+                justify-content: flex-start;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .hero-image {
+                max-width: 500px;
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            
+            .hero-image {
+                max-width: 600px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="debug-info">
+        <div>Viewport: <span id="viewport-size"></span></div>
+        <div>Hero Height: <span id="hero-height"></span></div>
+        <div>Text Visible: <span id="text-visible"></span></div>
+        <div>Image Visible: <span id="image-visible"></span></div>
+        <div>Elements Count: <span id="elements-count"></span></div>
+    </div>
+
+    <!-- Clean Single Hero Section -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <!-- Trust Badge -->
+            <div class="trust-badge">
+                <i class="fas fa-star me-2"></i>Trusted by 500+ Businesses
+            </div>
+            
+            <!-- Hero Content -->
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    We Create <span style="background: linear-gradient(135deg, #EB5C18, #F95055); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Digital Magic</span> <span style="color: #EB5C18;">That Converts</span>
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Transform your business with cutting-edge web design that doesn't just look stunning—it drives real results. We're not just developers; we're your digital growth partners.
+                </p>
+                
+                <div class="hero-buttons">
+                    <a class="btn btn-primary btn-lg" href="/contact">
+                        <i class="fas fa-rocket me-2"></i>Launch Your Success
+                    </a>
+                    <a class="btn btn-outline-light btn-lg" href="/portfolio">
+                        <i class="fas fa-play me-2"></i>See Our Magic in Action
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Hero Image -->
+            <img src="assets/img/slider/s-men2.png" alt="Hero Image" class="hero-image">
+        </div>
+    </section>
+
+    <script>
+        // Debug JavaScript
+        function updateDebugInfo() {
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            const heroSection = document.querySelector('.hero-section');
+            const heroText = document.querySelector('.hero-content');
+            const heroImage = document.querySelector('.hero-image');
+            const images = document.querySelectorAll('.hero-image');
+            const texts = document.querySelectorAll('.hero-content');
+            
+            document.getElementById('viewport-size').textContent = `${viewportWidth}x${viewportHeight}`;
+            document.getElementById('hero-height').textContent = heroSection ? `${heroSection.offsetHeight}px` : 'N/A';
+            document.getElementById('text-visible').textContent = heroText ? 
+                (heroText.offsetHeight > 0 ? 'Yes' : 'No') : 'N/A';
+            document.getElementById('image-visible').textContent = heroImage ? 
+                (heroImage.offsetHeight > 0 ? 'Yes' : 'No') : 'N/A';
+            document.getElementById('elements-count').textContent = 
+                `Images: ${images.length}, Text: ${texts.length}`;
+        }
+        
+        // Update debug info on load and resize
+        window.addEventListener('load', updateDebugInfo);
+        window.addEventListener('resize', updateDebugInfo);
+        
+        // Add debug classes to key elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const debugElements = [
+                '.hero-section',
+                '.hero-container',
+                '.hero-content',
+                '.hero-image',
+                '.hero-buttons'
+            ];
+            
+            debugElements.forEach(selector => {
+                const element = document.querySelector(selector);
+                if (element) {
+                    element.classList.add('debug-element');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

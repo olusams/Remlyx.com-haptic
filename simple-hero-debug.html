@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Hero Debug</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .hero-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 20px;
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        /* Simple hero image positioning */
+        .hero-image {
+            position: absolute;
+            right: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 5;
+            max-width: 400px;
+            width: 30%;
+            height: auto;
+        }
+        
+        /* Debugging styles */
+        .debug-info {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 12px;
+            z-index: 1000;
+            max-width: 300px;
+        }
+        
+        .debug-status {
+            margin: 5px 0;
+            padding: 5px;
+            border-radius: 3px;
+        }
+        
+        .success { background: rgba(0,255,0,0.2); }
+        .error { background: rgba(255,0,0,0.2); }
+        .warning { background: rgba(255,255,0,0.2); }
+        
+        @media (max-width: 768px) {
+            .hero-image {
+                position: relative;
+                right: auto;
+                top: auto;
+                transform: none;
+                margin: 20px auto;
+                display: block;
+                max-width: 250px;
+                width: 80%;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="debug-info">
+        <h4>🔍 Hero Image Debug</h4>
+        <div id="imageStatus" class="debug-status">Loading...</div>
+        <div id="dimensionsInfo" class="debug-status">Checking dimensions...</div>
+        <div id="pathInfo" class="debug-status">Testing paths...</div>
+    </div>
+
+    <div class="hero-container">
+        <div class="hero-content">
+            <h1>We Create <span style="color: #FFD700;">Digital Magic</span></h1>
+            <p>Professional web development that converts visitors into customers</p>
+            <button style="background: #ff6b35; color: white; border: none; padding: 15px 30px; border-radius: 25px; font-size: 1rem; cursor: pointer;">Get Quote</button>
+        </div>
+        
+        <!-- The problematic hero image -->
+        <img id="heroImage" class="hero-image" src="assets/img/slider/s-men2.png" alt="Hero Character" 
+             onload="onImageLoad()" onerror="onImageError()">
+    </div>
+
+    <script>
+        let debugInfo = {
+            imageLoaded: false,
+            dimensions: null,
+            naturalDimensions: null,
+            computedStyle: null
+        };
+
+        function onImageLoad() {
+            debugInfo.imageLoaded = true;
+            const img = document.getElementById('heroImage');
+            debugInfo.dimensions = {
+                width: img.width,
+                height: img.height
+            };
+            debugInfo.naturalDimensions = {
+                width: img.naturalWidth,
+                height: img.naturalHeight
+            };
+            debugInfo.computedStyle = window.getComputedStyle(img);
+            
+            updateDebugInfo();
+            console.log('✅ Hero image loaded successfully!', debugInfo);
+        }
+
+        function onImageError() {
+            debugInfo.imageLoaded = false;
+            updateDebugInfo();
+            console.error('❌ Hero image failed to load!');
+            
+            // Try alternative paths
+            testAlternativePaths();
+        }
+
+        function updateDebugInfo() {
+            const statusEl = document.getElementById('imageStatus');
+            const dimensionsEl = document.getElementById('dimensionsInfo');
+            
+            if (debugInfo.imageLoaded) {
+                statusEl.innerHTML = '✅ Image loaded successfully!';
+                statusEl.className = 'debug-status success';
+                
+                dimensionsEl.innerHTML = `📐 ${debugInfo.naturalDimensions.width}x${debugInfo.naturalDimensions.height}px<br>Display: ${debugInfo.dimensions.width}x${debugInfo.dimensions.height}px`;
+                dimensionsEl.className = 'debug-status success';
+            } else {
+                statusEl.innerHTML = '❌ Image failed to load';
+                statusEl.className = 'debug-status error';
+                
+                dimensionsEl.innerHTML = '❌ No dimensions available';
+                dimensionsEl.className = 'debug-status error';
+            }
+        }
+
+        function testAlternativePaths() {
+            const paths = [
+                './assets/img/slider/s-men2.png',
+                '/assets/img/slider/s-men2.png',
+                '../assets/img/slider/s-men2.png'
+            ];
+            
+            let pathResults = [];
+            
+            paths.forEach((path, index) => {
+                fetch(path)
+                    .then(response => {
+                        pathResults.push(`${path}: ${response.status}`);
+                        if (pathResults.length === paths.length) {
+                            document.getElementById('pathInfo').innerHTML = pathResults.join('<br>');
+                        }
+                    })
+                    .catch(error => {
+                        pathResults.push(`${path}: ERROR`);
+                        if (pathResults.length === paths.length) {
+                            document.getElementById('pathInfo').innerHTML = pathResults.join('<br>');
+                        }
+                    });
+            });
+        }
+
+        // Initial debug info
+        document.getElementById('pathInfo').innerHTML = `Current URL: ${window.location.href}`;
+
+        // Check if image loads within 3 seconds
+        setTimeout(() => {
+            if (!debugInfo.imageLoaded) {
+                console.warn('⚠️ Image still not loaded after 3 seconds');
+                testAlternativePaths();
+            }
+        }, 3000);
+    </script>
+</body>
+</html>

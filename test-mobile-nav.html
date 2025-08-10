@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Navigation Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .test-info {
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .mobile-menu-test {
+            border: 2px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .test-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .test-button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-info">
+        <h1>Mobile Navigation Debug Test</h1>
+        <p>This page tests the mobile navigation functionality. Open browser dev tools and check the console for any errors.</p>
+        <p><strong>Current viewport width:</strong> <span id="viewport-width"></span>px</p>
+        <p><strong>Mobile menu button found:</strong> <span id="button-found">Checking...</span></p>
+        <p><strong>Mobile menu wrap found:</strong> <span id="wrap-found">Checking...</span></p>
+    </div>
+
+    <div class="mobile-menu-test">
+        <h2>Test Controls</h2>
+        <button class="test-button" onclick="testMobileMenu()">Test Mobile Menu Toggle</button>
+        <button class="test-button" onclick="checkElements()">Check Elements</button>
+        <button class="test-button" onclick="forceMobileView()">Force Mobile View</button>
+        <button class="test-button" onclick="openDevTools()">Open Dev Tools</button>
+    </div>
+
+    <!-- Include the mobile navigation HTML -->
+    <div class="mobile_menu position-relative">
+        <div class="mobile_menu_button open_mobile_menu">
+            <i class="fal fa-bars">☰</i>
+        </div>
+        <div class="mobile_menu_wrap">
+            <div class="mobile_menu_overlay open_mobile_menu"></div>
+            <div class="mobile_menu_content">
+                <div class="mobile_menu_close open_mobile_menu">
+                    <i class="fal fa-times">✕</i>
+                </div>
+                <div class="m-brand-logo">
+                    <h3>Test Logo</h3>
+                </div>
+                <nav class="mobile-main-navigation clearfix ul-li">
+                    <ul id="m-main-nav" class="nav navbar-nav clearfix">
+                        <li class="active"><a href='#'>Home</a></li>
+                        <li><a href='#'>About</a></li>
+                        <li><a href='#'>Services</a></li>
+                        <li><a href='#'>Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include jQuery -->
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    
+    <!-- Include the mobile menu fix -->
+    <script src="assets/js/mobile-menu-fix.js"></script>
+    
+    <!-- Include the enhanced mobile navigation CSS -->
+    <link rel="stylesheet" href="assets/css/enhanced-mobile-nav.css">
+
+    <script>
+        // Update viewport width
+        function updateViewportWidth() {
+            document.getElementById('viewport-width').textContent = window.innerWidth;
+        }
+        
+        // Check if elements exist
+        function checkElements() {
+            const button = document.querySelector('.mobile_menu_button');
+            const wrap = document.querySelector('.mobile_menu_wrap');
+            
+            document.getElementById('button-found').textContent = button ? 'Yes' : 'No';
+            document.getElementById('wrap-found').textContent = wrap ? 'Yes' : 'No';
+            
+            if (button) {
+                console.log('Button styles:', window.getComputedStyle(button));
+                console.log('Button display:', window.getComputedStyle(button).display);
+                console.log('Button visibility:', window.getComputedStyle(button).visibility);
+                console.log('Button opacity:', window.getComputedStyle(button).opacity);
+            }
+            
+            if (wrap) {
+                console.log('Wrap styles:', window.getComputedStyle(wrap));
+                console.log('Wrap display:', window.getComputedStyle(wrap).display);
+            }
+        }
+        
+        // Test mobile menu toggle
+        function testMobileMenu() {
+            const wrap = document.querySelector('.mobile_menu_wrap');
+            if (wrap) {
+                const isOpen = wrap.classList.contains('mobile_menu_on') || wrap.classList.contains('active');
+                console.log('Current state:', isOpen ? 'Open' : 'Closed');
+                
+                if (isOpen) {
+                    wrap.classList.remove('mobile_menu_on', 'active');
+                    console.log('Menu closed');
+                } else {
+                    wrap.classList.add('mobile_menu_on', 'active');
+                    console.log('Menu opened');
+                }
+            } else {
+                console.log('Mobile menu wrap not found');
+            }
+        }
+        
+        // Force mobile view
+        function forceMobileView() {
+            const button = document.querySelector('.mobile_menu_button');
+            if (button) {
+                button.style.display = 'block';
+                button.style.visibility = 'visible';
+                button.style.opacity = '1';
+                button.style.position = 'fixed';
+                button.style.top = '20px';
+                button.style.right = '20px';
+                button.style.zIndex = '99998';
+                console.log('Forced mobile menu button visibility');
+            }
+        }
+        
+        // Open dev tools
+        function openDevTools() {
+            alert('Press F12 or right-click and select "Inspect" to open developer tools');
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateViewportWidth();
+            checkElements();
+            
+            // Update on resize
+            window.addEventListener('resize', updateViewportWidth);
+            
+            // Check again after a delay
+            setTimeout(checkElements, 2000);
+        });
+    </script>
+</body>
+</html>

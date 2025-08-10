@@ -1,0 +1,687 @@
+/* ===================================
+   SIDENAV ENHANCEMENTS - BLACK SCHEMA
+   Enhanced styling for sidebar and mobile navigation
+   Sophisticated black theme to complement white logo
+   =================================== */
+
+/* ===================================
+   SIDEBAR WIDGET ENHANCEMENTS
+   =================================== */
+
+.xs-sidebar-widget {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2d2d2d 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.9),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-right: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.xs-sidebar-widget::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.sidebar-widget-container {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  margin: 20px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ===================================
+   SIDEBAR INFO CONTENTS ENHANCEMENTS
+   =================================== */
+
+.sidebar-info-contents {
+  position: relative;
+}
+
+.sidebar-info-contents .sidebar-logo {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+  border-radius: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.sidebar-info-contents .sidebar-logo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.12) 100%);
+}
+
+.sidebar-info-contents .sidebar-menu {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar-info-contents .sidebar-menu li {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.sidebar-info-contents .sidebar-menu li:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-info-contents .sidebar-menu li a {
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.03) 100%);
+  padding: 20px 30px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+}
+
+.sidebar-info-contents .sidebar-menu li a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transition: left 0.5s ease;
+}
+
+.sidebar-info-contents .sidebar-menu li a:hover::before {
+  left: 100%;
+}
+
+.sidebar-info-contents .sidebar-menu li a:hover {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.08) 100%);
+  color: #ffffff;
+  transform: translateX(5px);
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.08);
+}
+
+.sidebar-info-contents .sidebar-menu li a i {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.15) 100%);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  color: #ffffff;
+}
+
+.sidebar-info-contents .sidebar-menu li a:hover i {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.25) 100%);
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* ===================================
+   MOBILE MENU ENHANCEMENTS
+   =================================== */
+
+.mobile_menu_content {
+  background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #1a1a1a 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 20s ease infinite;
+  box-shadow:
+    -10px 0 30px rgba(0, 0, 0, 0.9),
+    inset 1px 0 0 rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-right: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.mobile_menu_content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.mobile_menu_content .mobile-main-navigation .navbar-nav li {
+  margin: 5px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.mobile_menu_content .mobile-main-navigation .navbar-nav li a {
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.04) 100%);
+  border-radius: 12px;
+  margin: 0 10px;
+  padding: 15px 25px !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+}
+
+.mobile_menu_content .mobile-main-navigation .navbar-nav li a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+  transition: left 0.5s ease;
+}
+
+.mobile_menu_content .mobile-main-navigation .navbar-nav li a:hover::before {
+  left: 100%;
+}
+
+.mobile_menu_content .mobile-main-navigation .navbar-nav li a:hover {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.1) 100%);
+  color: #ffffff;
+  transform: translateX(8px);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.4),
+    inset 0 0 20px rgba(255, 255, 255, 0.08);
+}
+
+.mobile_menu_content .mobile-main-navigation .navbar-nav .dropdown-menu {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  margin: 5px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.mobile_menu_content .mobile-main-navigation .navbar-nav .dropdown-menu li a {
+  margin: 0;
+  border-radius: 8px;
+  margin: 3px 5px;
+  padding: 12px 20px !important;
+  font-size: 13px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+}
+
+.mobile_menu_content .mobile-main-navigation .navbar-nav .dropdown-menu li a:hover {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.08) 100%);
+  transform: translateX(5px);
+}
+
+/* ===================================
+   MOBILE MENU OVERLAY ENHANCEMENTS
+   =================================== */
+
+.mobile_menu_overlay {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.98) 0%, rgba(10, 10, 10, 0.95) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* ===================================
+   MOBILE MENU BUTTON ENHANCEMENTS - ENHANCED COLORS
+   =================================== */
+
+.mobile_menu_button {
+  background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 50%, #c0c0c0 100%);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.4),
+    0 2px 8px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+.mobile_menu_button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mobile_menu_button:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.5),
+    0 4px 12px rgba(255, 255, 255, 0.4);
+  background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 50%, #d0d0d0 100%);
+  border-color: rgba(255, 255, 255, 1);
+}
+
+.mobile_menu_button:hover::before {
+  opacity: 1;
+}
+
+.mobile_menu_button i {
+  color: #000000;
+  font-size: 20px;
+  font-weight: 600;
+  z-index: 2;
+  position: relative;
+}
+
+/* ===================================
+   MOBILE MENU CLOSE BUTTON ENHANCEMENTS - ENHANCED COLORS
+   =================================== */
+
+.mobile_menu_close {
+  background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 50%, #c0c0c0 100%);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.4),
+    0 2px 8px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+.mobile_menu_close::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mobile_menu_close:hover {
+  transform: scale(1.1) rotate(90deg);
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.5),
+    0 4px 12px rgba(255, 255, 255, 0.4);
+  background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 50%, #d0d0d0 100%);
+  border-color: rgba(255, 255, 255, 1);
+}
+
+.mobile_menu_close:hover::before {
+  opacity: 1;
+}
+
+.mobile_menu_close i {
+  color: #000000;
+  font-size: 18px;
+  font-weight: 600;
+  z-index: 2;
+  position: relative;
+}
+
+/* ===================================
+   MOBILE SEARCH BAR ENHANCEMENTS
+   =================================== */
+
+.mobile_menu_content .mobile-search-bar input {
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 25px;
+  padding: 15px 20px;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.mobile_menu_content .mobile-search-bar input:focus {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  outline: none;
+}
+
+.mobile_menu_content .mobile-search-bar input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.mobile_menu_content .mobile-search-bar button {
+  background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  right: 5px;
+  top: 5px;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  color: #000000;
+}
+
+.mobile_menu_content .mobile-search-bar button:hover {
+  background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* ===================================
+   MOBILE SOCIAL LINKS ENHANCEMENTS
+   =================================== */
+
+.mobile_menu_content .bi-mobile-header-social a {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #ffffff;
+}
+
+.mobile_menu_content .bi-mobile-header-social a:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.15) 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* ===================================
+   SIDEMENU AREA ENHANCEMENTS
+   =================================== */
+
+.sidemenu-area {
+  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 50%, #000000 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 18s ease infinite;
+  box-shadow:
+    10px 0 30px rgba(0, 0, 0, 0.9),
+    inset -1px 0 0 rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-left: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidemenu-area::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 90% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 10% 80%, rgba(255, 255, 255, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.sidemenu-close-btn {
+  background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 50%, #c0c0c0 100%);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.4),
+    0 2px 8px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+.sidemenu-close-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sidemenu-close-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.5),
+    0 4px 12px rgba(255, 255, 255, 0.4);
+  background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 50%, #d0d0d0 100%);
+  border-color: rgba(255, 255, 255, 1);
+}
+
+.sidemenu-close-btn:hover::before {
+  opacity: 1;
+}
+
+.sidemenu-close-btn i {
+  color: #000000;
+  font-size: 18px;
+  font-weight: 600;
+  z-index: 2;
+  position: relative;
+}
+
+/* ===================================
+   RESPONSIVE ENHANCEMENTS
+   =================================== */
+
+@media (max-width: 768px) {
+  .xs-sidebar-widget {
+    max-width: 100%;
+    background: linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
+  }
+
+  .mobile_menu_content {
+    width: 100%;
+    left: -100%;
+  }
+
+  .sidemenu-area {
+    max-width: 100%;
+    left: -100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar-widget-container {
+    margin: 10px;
+    padding: 20px;
+  }
+
+  .mobile_menu_content {
+    padding: 15px 20px 25px 20px;
+  }
+
+  .mobile_menu_content .mobile-main-navigation .navbar-nav li a {
+    padding: 12px 20px !important;
+    margin: 0 5px;
+  }
+}
+
+/* ===================================
+   ANIMATION ENHANCEMENTS
+   =================================== */
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.xs-sidebar-group.isActive .xs-sidebar-widget {
+  animation: slideInFromRight 0.7s cubic-bezier(0.9, 0.03, 0, 0.96);
+}
+
+.mobile_menu_wrap.mobile_menu_on .mobile_menu_content {
+  animation: slideInFromLeft 0.7s cubic-bezier(0.9, 0.03, 0, 0.96);
+}
+
+.sidemenu-area:is(.active) {
+  animation: slideInFromLeft 0.7s cubic-bezier(0.9, 0.03, 0, 0.96);
+}
+
+/* ===================================
+   SCROLLBAR ENHANCEMENTS
+   =================================== */
+
+.xs-sidebar-widget::-webkit-scrollbar,
+.mobile_menu_content::-webkit-scrollbar,
+.sidemenu-area::-webkit-scrollbar {
+  width: 6px;
+}
+
+.xs-sidebar-widget::-webkit-scrollbar-track,
+.mobile_menu_content::-webkit-scrollbar-track,
+.sidemenu-area::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+}
+
+.xs-sidebar-widget::-webkit-scrollbar-thumb,
+.mobile_menu_content::-webkit-scrollbar-thumb,
+.sidemenu-area::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.4) 100%);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.xs-sidebar-widget::-webkit-scrollbar-thumb:hover,
+.mobile_menu_content::-webkit-scrollbar-thumb:hover,
+.sidemenu-area::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.6) 100%);
+}
+
+/* ===================================
+   FOCUS STATES FOR ACCESSIBILITY
+   =================================== */
+
+.sidebar-info-contents .sidebar-menu li a:focus,
+.mobile_menu_content .mobile-main-navigation .navbar-nav li a:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 2px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.mobile_menu_button:focus,
+.mobile_menu_close:focus,
+.sidemenu-close-btn:focus {
+  outline: 2px solid rgba(0, 0, 0, 0.6);
+  outline-offset: 2px;
+}
+
+/* ===================================
+   LOADING STATES
+   =================================== */
+
+.xs-sidebar-widget.loading,
+.mobile_menu_content.loading,
+.sidemenu-area.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.xs-sidebar-widget.loading::after,
+.mobile_menu_content.loading::after,
+.sidemenu-area.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* ===================================
+   PERFORMANCE OPTIMIZATIONS
+   =================================== */
+
+.xs-sidebar-widget,
+.mobile_menu_content,
+.sidemenu-area {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* ===================================
+   PRINT STYLES
+   =================================== */
+
+@media print {
+  .xs-sidebar-widget,
+  .mobile_menu_content,
+  .sidemenu-area {
+    display: none !important;
+  }
+}

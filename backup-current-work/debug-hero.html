@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Debug</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .debug-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .debug-section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .debug-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .debug-item {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 3px;
+        }
+        .status-ok { color: #28a745; }
+        .status-warning { color: #ffc107; }
+        .status-error { color: #dc3545; }
+        .code-block {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 3px;
+            font-family: monospace;
+            font-size: 12px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="debug-container">
+        <h1>Hero Section Debug Report</h1>
+        
+        <div class="debug-section">
+            <div class="debug-title">CSS Files Analysis</div>
+            <div class="debug-item">
+                <strong>Files Loaded:</strong>
+                <ul>
+                    <li>style.css - Base styles</li>
+                    <li>responsive-optimizations.css - Mobile optimizations</li>
+                    <li>hero-font-reduction.css - 30% font size reduction</li>
+                    <li>hero-layout-adjustment.css - Layout positioning</li>
+                </ul>
+            </div>
+            <div class="debug-item">
+                <strong>Potential Conflicts:</strong>
+                <ul>
+                    <li class="status-warning">Multiple CSS files targeting same elements</li>
+                    <li class="status-warning">!important declarations may override each other</li>
+                    <li class="status-warning">Flexbox layout conflicts with original positioning</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="debug-section">
+            <div class="debug-title">Layout Issues</div>
+            <div class="debug-item">
+                <strong>Current Layout Structure:</strong>
+                <div class="code-block">
+.bi-main-slider-item-4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 120px 0px 80px;
+}
+                </div>
+            </div>
+            <div class="debug-item">
+                <strong>Element Order:</strong>
+                <ol>
+                    <li>slider_men (order: 1) - Image at top</li>
+                    <li>bi-main-slider-text (order: 2) - Text content</li>
+                    <li>bi-slider-watch-video (order: 3) - Video section</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="debug-section">
+            <div class="debug-title">Font Size Issues</div>
+            <div class="debug-item">
+                <strong>Font Size Reductions:</strong>
+                <ul>
+                    <li>h1: 153px → 107px (30% reduction)</li>
+                    <li>span: 131px → 92px (30% reduction)</li>
+                    <li>strong: 155px → 109px (30% reduction)</li>
+                </ul>
+            </div>
+            <div class="debug-item">
+                <strong>Responsive Breakpoints:</strong>
+                <ul>
+                    <li>1200px: 85px, 73px, 87px</li>
+                    <li>991px: 65px, 55px, 67px</li>
+                    <li>767px: 45px, 38px, 47px</li>
+                    <li>480px: 35px, 30px, 37px</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="debug-section">
+            <div class="debug-title">Potential Issues</div>
+            <div class="debug-item">
+                <strong class="status-error">Critical Issues:</strong>
+                <ul>
+                    <li>CSS specificity conflicts between multiple files</li>
+                    <li>Original positioning overridden by flexbox</li>
+                    <li>shape_1 element hidden (display: none)</li>
+                    <li>Multiple !important declarations may cause unexpected behavior</li>
+                </ul>
+            </div>
+            <div class="debug-item">
+                <strong class="status-warning">Warning Issues:</strong>
+                <ul>
+                    <li>Image scaling may be too aggressive on mobile</li>
+                    <li>Text may be too small on very small screens</li>
+                    <li>Video section positioning may need adjustment</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="debug-section">
+            <div class="debug-title">Recommended Fixes</div>
+            <div class="debug-item">
+                <strong>Immediate Actions:</strong>
+                <ol>
+                    <li>Consolidate CSS rules to reduce conflicts</li>
+                    <li>Test responsive behavior on different devices</li>
+                    <li>Verify image scaling works properly</li>
+                    <li>Check if text remains readable at all sizes</li>
+                    <li>Ensure video section is properly positioned</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Debug script to check for issues
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Hero Debug: Checking for issues...');
+            
+            // Check if all CSS files are loaded
+            const stylesheets = document.styleSheets;
+            let cssFiles = [];
+            for (let i = 0; i < stylesheets.length; i++) {
+                try {
+                    if (stylesheets[i].href) {
+                        cssFiles.push(stylesheets[i].href.split('/').pop());
+                    }
+                } catch (e) {
+                    // Cross-origin stylesheets will throw error
+                }
+            }
+            console.log('Loaded CSS files:', cssFiles);
+            
+            // Check for specific elements
+            const heroContainer = document.querySelector('.bi-main-slider-item-4');
+            const sliderMen = document.querySelector('.slider_men');
+            const heroText = document.querySelector('.bi-main-slider-text');
+            const videoSection = document.querySelector('.bi-slider-watch-video');
+            
+            console.log('Hero container found:', !!heroContainer);
+            console.log('Slider men found:', !!sliderMen);
+            console.log('Hero text found:', !!heroText);
+            console.log('Video section found:', !!videoSection);
+            
+            if (heroContainer) {
+                const computedStyle = window.getComputedStyle(heroContainer);
+                console.log('Hero container display:', computedStyle.display);
+                console.log('Hero container flex-direction:', computedStyle.flexDirection);
+            }
+        });
+    </script>
+</body>
+</html> 

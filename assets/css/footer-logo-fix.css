@@ -1,0 +1,76 @@
+/* Footer Logo Fix CSS */
+
+/* Ensure footer logo is properly displayed and sized */
+.bi-footer-logo {
+    padding: 30px 0 !important;
+    border-bottom: 1px solid #313131 !important;
+    background: transparent !important;
+}
+
+.bi-footer-logo .brand-logo {
+    text-align: center !important;
+    background: transparent !important;
+}
+
+.bi-footer-logo .brand-logo a {
+    display: inline-block !important;
+    background: transparent !important;
+    text-decoration: none !important;
+}
+
+.bi-footer-logo .brand-logo img {
+    max-height: 60px !important;
+    height: auto !important;
+    width: auto !important;
+    background: transparent !important;
+    object-fit: contain !important;
+    transition: all 0.3s ease !important;
+}
+
+.bi-footer-logo .brand-logo a:hover img {
+    transform: scale(1.05) !important;
+    opacity: 0.9 !important;
+}
+
+/* Logo mail styling */
+.bi-footer-logo .logo-mail {
+    margin-top: 15px !important;
+}
+
+.bi-footer-logo .logo-mail h3 {
+    color: #ffffff !important;
+    font-size: 24px !important;
+    font-weight: 300 !important;
+    margin: 0 !important;
+}
+
+.bi-footer-logo .logo-mail h3 a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    transition: color 0.3s ease !important;
+}
+
+.bi-footer-logo .logo-mail h3 a:hover {
+    color: #eb5c18 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .bi-footer-logo .brand-logo img {
+        max-height: 50px !important;
+    }
+    
+    .bi-footer-logo .logo-mail h3 {
+        font-size: 20px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .bi-footer-logo .brand-logo img {
+        max-height: 45px !important;
+    }
+    
+    .bi-footer-logo .logo-mail h3 {
+        font-size: 18px !important;
+    }
+}

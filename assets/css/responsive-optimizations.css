@@ -1,0 +1,446 @@
+/* Mobile-First Responsive Optimizations */
+
+/* Preloader fixes to prevent getting stuck */
+#preloader {
+	transition: opacity 0.5s ease-in-out !important;
+}
+
+#preloader.hidden {
+	opacity: 0 !important;
+	visibility: hidden !important;
+	pointer-events: none !important;
+}
+
+/* Force hide preloader if it gets stuck */
+body.loaded #preloader {
+	display: none !important;
+}
+
+/* Base mobile styles */
+@media (max-width: 767px) {
+	/* Typography optimization - further reduced for better mobile fit */
+	h1 {
+		font-size: 1.3rem !important;
+		line-height: 1.2 !important;
+	}
+	
+	h2 {
+		font-size: 1.1rem !important;
+		line-height: 1.3 !important;
+	}
+	
+	h3 {
+		font-size: 1rem !important;
+		line-height: 1.4 !important;
+	}
+	
+	p {
+		font-size: 0.8rem !important;
+		line-height: 1.5 !important;
+	}
+	
+	/* Header optimization */
+	.bi-header-content {
+		padding: 0.5rem 1rem !important;
+	}
+	
+	.brand-logo img {
+		max-width: 120px !important;
+		height: auto !important;
+	}
+	
+	/* Navigation optimization */
+	.bi-header-main-navigation {
+		display: none !important;
+	}
+	
+	.mobile-menu-toggle {
+		display: block !important;
+	}
+	
+	/* Mobile Hero Section Optimization */
+	.bi-main-slider-item-4 {
+		padding: 5rem 1rem 2rem !important;
+		min-height: 100vh !important;
+		display: flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		position: relative !important;
+	}
+	
+	.bi-main-slider-item-4 .container {
+		width: 100% !important;
+		display: flex !important;
+		justify-content: center !important;
+	}
+	
+	.bi-main-slider-item-4 .row {
+		flex-direction: column !important;
+		align-items: center !important;
+		justify-content: center !important;
+		text-align: center !important;
+		width: 100% !important;
+	}
+	
+	.bi-main-slider-item-4 .col-lg-6 {
+		width: 100% !important;
+		margin-bottom: 2rem !important;
+		display: flex !important;
+		justify-content: center !important;
+		align-items: center !important;
+	}
+	
+	/* Text positioning for mobile */
+	.bi-main-slider-text {
+		order: 1 !important;
+		margin-bottom: 2rem !important;
+		z-index: 10 !important;
+		text-align: center !important;
+		width: 100% !important;
+		display: flex !important;
+		flex-direction: column !important;
+		align-items: center !important;
+		padding: 0 1rem !important;
+	}
+	
+	/* Image positioning for mobile */
+	.bi-main-slider-item-4 .slider_men {
+		order: 2 !important;
+		display: flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		width: 100% !important;
+		margin-top: 0.5rem !important;
+		text-align: center !important;
+	}
+	
+	.bi-main-slider-item-4 .slider_men img {
+		transform: scale(1.4) !important;
+		width: 72% !important;
+		max-width: 72% !important;
+		height: auto !important;
+		object-fit: contain !important;
+		object-position: center !important;
+		z-index: 1 !important;
+		opacity: 0.85 !important;
+		filter: contrast(0.95) brightness(1) !important;
+		margin-top: 1rem !important;
+	}
+	
+	.bi-main-slider-text h1 {
+		font-size: 1.4rem !important;
+		z-index: 30 !important;
+		line-height: 1.2 !important;
+		margin-bottom: 1rem !important;
+		font-weight: 700 !important;
+		text-shadow: 0 2px 4px rgba(0,0,0,0.3) !important;
+	}
+	
+	.bi-slider-text p {
+		font-size: 0.95rem !important;
+		margin-bottom: 1.5rem !important;
+		line-height: 1.4 !important;
+		opacity: 0.95 !important;
+		text-shadow: 0 1px 2px rgba(0,0,0,0.2) !important;
+	}
+	
+	.bi-btn-4 {
+		padding: 1.2rem 2.5rem !important;
+		font-size: 1.1rem !important;
+		font-weight: 600 !important;
+		border-radius: 0.5rem !important;
+		position: relative !important;
+		z-index: 5 !important;
+		margin-top: 1.5rem !important;
+		min-height: 52px !important;
+		display: inline-flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+	}
+	
+	/* Additional Mobile Optimizations */
+	.bi-main-slider-item-4 {
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+	}
+	
+	/* Ensure proper spacing and alignment */
+	.bi-main-slider-item-4 .container {
+		padding: 0 1rem !important;
+		max-width: 100% !important;
+	}
+	
+	/* Additional mobile UX improvements */
+	.bi-main-slider-item-4 .col-lg-6 {
+		margin-bottom: 1.5rem !important;
+	}
+	
+	/* Improve touch targets */
+	.bi-btn-4:active {
+		transform: translateY(2px) !important;
+		box-shadow: 0 2px 8px rgba(0,0,0,0.2) !important;
+	}
+	
+	/* Improve button visibility */
+	.bi-btn-4 {
+		display: inline-block !important;
+		background: var(--primary-color) !important;
+		color: white !important;
+		text-decoration: none !important;
+		transition: all 0.3s ease !important;
+	}
+	
+	.bi-btn-4:hover {
+		background: #0056b3 !important;
+		transform: translateY(-2px) !important;
+	}
+	
+	/* Service section optimization */
+	.bi-service-scroll-item {
+		margin-bottom: 1rem !important;
+	}
+	
+	.service-text h3 {
+		font-size: 1.1rem !important;
+	}
+	
+	/* Footer optimization */
+	.bi-footer-widget-content {
+		padding: 2rem 1rem !important;
+	}
+	
+	.bi-footer-widget {
+		margin-bottom: 2rem !important;
+	}
+	
+	/* Image optimization */
+	img {
+		max-width: 100% !important;
+		height: auto !important;
+	}
+	
+	/* Container optimization */
+	.container {
+		padding-left: 1rem !important;
+		padding-right: 1rem !important;
+	}
+}
+
+/* Tablet styles */
+@media (min-width: 768px) and (max-width: 991px) {
+	h1 {
+		font-size: 2.5rem !important;
+	}
+	
+	h2 {
+		font-size: 2rem !important;
+	}
+	
+	.bi-header-content {
+		padding: 0.75rem 2rem !important;
+	}
+	
+	.brand-logo img {
+		max-width: 140px !important;
+	}
+	
+	.bi-main-slider-item-4 {
+		padding: 3rem 2rem !important;
+	}
+	
+	/* Make smen-2 image bigger in tablet view */
+	.bi-main-slider-item-4 .slider_men img {
+		transform: scale(0.75) !important;
+		width: 100vw !important;
+		max-width: 100% !important;
+		height: auto !important;
+		object-fit: contain !important;
+		object-position: center !important;
+		z-index: 1 !important;
+	}
+	
+	.bi-main-slider-text h1 {
+		z-index: 30 !important;
+	}
+}
+
+	/* Desktop styles */
+	@media (min-width: 992px) {
+		.bi-header-content {
+			padding: 1rem 3rem !important;
+		}
+		
+		.brand-logo img {
+			max-width: 150px !important;
+		}
+		
+		.bi-main-slider-item-4 {
+			padding: 4rem 3rem !important;
+		}
+		
+		/* Desktop Hero Layout Optimization */
+		.bi-main-slider-item-4 {
+			display: flex !important;
+			align-items: center !important;
+			justify-content: center !important;
+			min-height: 100vh !important;
+		}
+		
+		.bi-main-slider-item-4 .row {
+			align-items: center !important;
+			justify-content: center !important;
+			width: 100% !important;
+		}
+		
+		.bi-main-slider-item-4 .col-lg-6 {
+			display: flex !important;
+			align-items: center !important;
+			justify-content: center !important;
+		}
+		
+		/* Ensure smen-2 image is properly positioned on desktop */
+		.bi-main-slider-item-4 .slider_men {
+			display: flex !important;
+			align-items: center !important;
+			justify-content: center !important;
+			height: 100% !important;
+		}
+		
+		.bi-main-slider-item-4 .slider_men img {
+			transform: scale(0.45) !important;
+			width: 90% !important;
+			max-width: 90% !important;
+			height: auto !important;
+			object-fit: contain !important;
+			object-position: center !important;
+			z-index: 1 !important;
+			margin-top: 3rem !important;
+		}
+		
+		.bi-main-slider-text {
+			display: flex !important;
+			flex-direction: column !important;
+			justify-content: center !important;
+			align-items: center !important;
+			text-align: center !important;
+			height: 100% !important;
+		}
+		
+		.bi-main-slider-text h1 {
+			z-index: 30 !important;
+			margin-bottom: 1.5rem !important;
+		}
+		
+		.bi-slider-text {
+			margin-bottom: 2rem !important;
+		}
+		
+		.bi-btn-4 {
+			position: relative !important;
+			z-index: 10 !important;
+		}
+	}
+
+/* Performance optimizations */
+.bi-main-slider-item-4 {
+	will-change: transform;
+}
+
+.service-img img {
+	will-change: transform;
+	transition: transform 0.3s ease;
+}
+
+.service-img img:hover {
+	transform: scale(1.05);
+}
+
+/* Loading animations */
+.fade-in {
+	opacity: 0;
+	animation: fadeIn 0.6s ease-in forwards;
+}
+
+@keyframes fadeIn {
+	from { opacity: 0; transform: translateY(20px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+	* {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
+/* Focus styles for accessibility */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+	outline: 2px solid #007bff !important;
+	outline-offset: 2px !important;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+	.bi-btn-4 {
+		border: 2px solid currentColor !important;
+	}
+	
+	.bi-main-slider-text h1 {
+		text-shadow: 2px 2px 4px rgba(0,0,0,0.8) !important;
+	}
+}
+
+/* Print styles */
+@media print {
+	.bi-header-btn,
+	.bi-slider-watch-video,
+	.bi-footer-social {
+		display: none !important;
+	}
+	
+	.bi-main-slider-item-4 {
+		background: white !important;
+		color: black !important;
+	}
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--text-color: #ffffff;
+		--bg-color: #1a1a1a;
+		--accent-color: #4dabf7;
+	}
+	
+	body {
+		background-color: var(--bg-color);
+		color: var(--text-color);
+	}
+	
+	.bi-header-section {
+		background-color: rgba(26, 26, 26, 0.95);
+	}
+}
+
+/* Performance monitoring */
+.perf-monitor {
+	position: fixed;
+	top: 10px;
+	right: 10px;
+	background: rgba(0,0,0,0.8);
+	color: white;
+	padding: 5px 10px;
+	border-radius: 4px;
+	font-size: 12px;
+	z-index: 9999;
+	display: none;
+}
+
+.perf-monitor.show {
+	display: block;
+} 

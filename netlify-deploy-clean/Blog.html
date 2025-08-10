@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Blog & News - Remlyx Web Design & Development Agency Leeds</title>
+	<meta name="description" content="Latest blog posts and news from Remlyx - Leeds based web design agency">
+	<meta name="keywords" content="agency, app, business, company, corporate, designer, freelance, fullpage, modern, office, personal, portfolio, professional, web, web agency">
+	<meta name="author" content="Remlyx">
+	<link rel="shortcut icon" href="assets/img/logo/f-icon.png" type="image/x-icon">
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/fontawesome.css">
+	<link rel="stylesheet" href="assets/css/flaticon_aina.css">
+	<link rel="stylesheet" href="assets/css/animate.css">
+	<link rel="stylesheet" href="assets/css/global.css">
+	<link rel="stylesheet" href="assets/css/swiper.min.css">
+	<link rel="stylesheet" href="assets/css/magnific-popup.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/logo-enhancement.css">
+	<link rel="stylesheet" href="assets/css/sidenav-enhancements.css">
+	<link rel="stylesheet" href="assets/css/mobile-fix.css">
+	<link rel="stylesheet" href="assets/css/transparent-header.css">
+	<link rel="stylesheet" href="assets/css/enhanced-mobile-nav.css">
+	<link rel="stylesheet" href="assets/css/remove-cart.css">
+	<style>
+		/* Blog Zigzag Theme Styling */
+		.bi-blog-zigzag-item {
+			margin-bottom: 80px;
+			position: relative;
+		}
+		
+		.bi-blog-zigzag-item:nth-child(even) .blog-content-wrapper {
+			flex-direction: row-reverse;
+		}
+		
+		.blog-content-wrapper {
+			display: flex;
+			align-items: center;
+			gap: 50px;
+			background: #fff;
+			border-radius: 15px;
+			box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+			overflow: hidden;
+			transition: all 0.3s ease;
+		}
+		
+		.blog-content-wrapper:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+		}
+		
+		.blog-img-wrapper {
+			flex: 0 0 45%;
+			position: relative;
+			overflow: hidden;
+		}
+		
+		.blog-img-wrapper img {
+			width: 100%;
+			height: 400px;
+			object-fit: cover;
+			transition: transform 0.3s ease;
+		}
+		
+		.blog-content-wrapper:hover .blog-img-wrapper img {
+			transform: scale(1.05);
+		}
+		
+		.blog-meta-star {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			background: rgba(255,255,255,0.9);
+			padding: 10px 15px;
+			border-radius: 25px;
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+		
+		.blog-meta-star .date {
+			color: #666;
+			font-size: 14px;
+			font-weight: 500;
+		}
+		
+		.blog-meta-star .star {
+			color: #ff6b35;
+			font-size: 16px;
+		}
+		
+		.blog-text-wrapper {
+			flex: 1;
+			padding: 40px;
+		}
+		
+		.blog-text-wrapper h3 {
+			font-size: 28px;
+			font-weight: 700;
+			margin-bottom: 20px;
+			color: #1a1a1a;
+			line-height: 1.3;
+		}
+		
+		.blog-text-wrapper h3 a {
+			color: inherit;
+			text-decoration: none;
+			transition: color 0.3s ease;
+		}
+		
+		.blog-text-wrapper h3 a:hover {
+			color: #ff6b35;
+		}
+		
+		.blog-text-wrapper p {
+			color: #666;
+			line-height: 1.8;
+			margin-bottom: 30px;
+			font-size: 16px;
+		}
+		
+		.blog-read-more {
+			display: inline-block;
+			background: linear-gradient(45deg, #ff6b35, #ff8c42);
+			color: white;
+			padding: 12px 30px;
+			border-radius: 25px;
+			text-decoration: none;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			transition: all 0.3s ease;
+			box-shadow: 0 5px 15px rgba(255,107,53,0.3);
+		}
+		
+		.blog-read-more:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 8px 20px rgba(255,107,53,0.4);
+			color: white;
+			text-decoration: none;
+		}
+		
+		.bi-blog-section-title {
+			margin-bottom: 60px;
+		}
+		
+		.bi-subtitle {
+			color: #ff6b35;
+			font-size: 14px;
+			font-weight: 600;
+			letter-spacing: 2px;
+			margin-bottom: 15px;
+			display: block;
+		}
+		
+		.bi-title {
+			font-size: 48px;
+			font-weight: 700;
+			color: #1a1a1a;
+			margin: 0;
+		}
+		
+		.bi-blog-pagination {
+			margin-top: 60px;
+		}
+		
+		.bi-blog-pagination .pagination {
+			justify-content: center;
+			gap: 10px;
+		}
+		
+		.bi-blog-pagination .pagination li a {
+			width: 50px;
+			height: 50px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 50%;
+			border: 2px solid #e0e0e0;
+			color: #666;
+			font-weight: 600;
+			transition: all 0.3s ease;
+		}
+		
+		.bi-blog-pagination .pagination li.active a,
+		.bi-blog-pagination .pagination li a:hover {
+			background: #ff6b35;
+			border-color: #ff6b35;
+			color: white;
+		}
+		
+		.bi-blog-pagination .pagination li.disabled span,
+		.bi-blog-pagination .pagination li span.disabled {
+			width: 50px;
+			height: 50px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border: 1px solid #e0e0e0;
+			border-radius: 50%;
+			color: #ccc;
+			cursor: not-allowed;
+			background: #f8f9fa;
+		}
+		
+		/* Responsive Design */
+		@media (max-width: 768px) {
+			.blog-content-wrapper {
+				flex-direction: column !important;
+				gap: 0;
+			}
+			
+			.blog-img-wrapper {
+				flex: none;
+				width: 100%;
+			}
+			
+			.blog-text-wrapper {
+				padding: 30px 20px;
+			}
+			
+			.bi-title {
+				font-size: 36px;
+			}
+		}
+	</style>
+</head>
+<body class="home-1">
+	<div id="preloader"></div>
+	<div class="up">
+		<a href="#" class="scrollup text-center"><i class="fas fa-chevron-up"></i></a>
+	</div>
+	<div class="cursor"></div>
+
+<!-- Start of header section
+	============================================= -->
+	<header id="bi-header" class="bi-header-section header-style-one">
+		<div class="bi-header-content">
+			<div class="bi-header-logo-main-menu d-flex align-items-center justify-content-between">
+				<div class="brand-logo">
+					<a href="Home.html"><img src="assets/img/rebirted.png" alt="Remlyx - Web Design Agency Leeds"></a>
+				</div>
+				<div class="bi-header-main-menu-cta-area d-flex align-items-center">
+					<div class="bi-header-main-navigation">
+						<nav class="main-navigation clearfix ul-li">
+							<ul id="main-nav" class="nav navbar-nav clearfix">
+								<li><a href="index.html">Home</a></li>
+								<li><a href="About.html">About</a></li>
+								<li><a href="Services.html">Services</a></li>
+								<li><a href="Portfolio.html">Portfolio</a></li>
+								<li class="active"><a href="Blog.html">Blog</a></li>
+								<li><a href="Contact.html">Contact</a></li>
+								<li><a href="FAQ.html">FAQ</a></li>
+								<li><a href="Testimonials.html">Testimonials</a></li>
+								<li><a href="Privacy.html">Privacy Policy</a></li>
+								<li><a href="Terms.html">Terms & Conditions</a></li>
+								<li><a href="Agreement.html">Agreement</a></li>
+							</ul>
+						</nav>
+					</div>
+					<div class="bi-header-social">
+						<a href="#"> <i class="fab fa-instagram"></i></a>
+						<a href="#"> <i class="fab fa-linkedin-in"></i></a>
+						<a href="https://www.facebook.com/people/Remlyx/100069426878077/"  rel="noopener noreferrer"> <i class="fab fa-facebook"></i></a>
+						<a href="#"> <i class="fab fa-youtube"></i></a>
+					</div>
+					<div class="bi-header-cta-btn-grp d-flex align-items-center">
+						<div class="cart-btn position-relative header-cart-btn">
+							<button><i class="fab fa-opencart"></i></button>
+							<span>2</span>
+						</div>
+						<div class="offcanves-btn navSidebar-button">
+							<button><i class="fal fa-bars"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mobile_menu position-relative">
+				<div class="mobile_menu_button open_mobile_menu">
+					<i class="fal fa-bars"></i>
+				</div>
+				<div class="mobile_menu_wrap">
+					<div class="mobile_menu_overlay open_mobile_menu"></div>
+					<div class="mobile_menu_content">
+						<div class="mobile_menu_close open_mobile_menu">
+							<i class="fal fa-times"></i>
+						</div>
+						<div class="m-brand-logo">
+							<a href="index.html"><img src="assets/img/rebirted.png" alt="Remlyx - Web Design Agency Leeds"></a>
+						</div>
+						<div class="mobile-search-bar position-relative">
+							<form action="#">
+								<input type="text" name="search" placeholder="Keywords">
+								<button><i class="fal fa-search"></i></button>
+							</form>
+						</div>
+											<nav class="mobile-main-navigation  clearfix ul-li">
+						<ul id="m-main-nav" class="nav navbar-nav clearfix">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="About.html">About</a></li>
+							<li><a href="Services.html">Services</a></li>
+							<li><a href="Portfolio.html">Portfolio</a></li>
+							<li class="active"><a href="Blog.html">Blog</a></li>
+							<li><a href="Contact.html">Contact</a></li>
+						</ul>
+					</nav>
+						<div class="bi-mobile-header-social text-center">
+							<a href="#"> <i class="fab fa-instagram"></i></a>
+							<a href="#"> <i class="fab fa-linkedin-in"></i></a>
+							<a href="https://www.facebook.com/people/Remlyx/100069426878077/"  rel="noopener noreferrer"> <i class="fab fa-facebook"></i></a>
+							<a href="#"> <i class="fab fa-youtube"></i></a>
+						</div>
+					</div>
+				</div>
+				<!-- /Mobile-Menu -->
+			</div>
+		</div>
+	</header>
+	<!-- End of header section
+	============================================= -->
+
+<!-- Start of breadcrumb section
+	============================================= -->
+	<section id="bi-breadcrumbs" class="bi-bredcrumbs-section position-relative" data-background="assets/img/bg/bread-bg.jpg">
+		<div class="background_overlay"></div>
+		<div class="container">
+			<div class="bi-breadcrumbs-content headline ul-li text-center">
+				<h2>Blog & News</h2>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li>Blog & News</li>
+				</ul>
+			</div>
+		</div>
+	</section>	
+<!-- End of breadcrumb section
+	============================================= -->
+
+<!-- Start of blog section
+	============================================= -->
+	<section id="bi-blog" class="bi-blog-section inner-page-padding">
+		<div class="container">
+			<div class="bi-blog-content">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="bi-blog-section-title text-center">
+							<span class="bi-subtitle text-uppercase">WELCOME CREATIVE AGENCY</span>
+							<h2 class="bi-title">Latest From the Blog</h2>
+						</div>
+						
+						<!-- Blog Post 1 - Image Left -->
+						<div class="bi-blog-zigzag-item wow fadeInUp" data-wow-delay="100ms" data-wow-duration="1000ms">
+							<div class="blog-content-wrapper">
+								<div class="blog-img-wrapper">
+									<img src="assets/img/blog/blg1.jpg" alt="">
+									<div class="blog-meta-star">
+										<span class="date">OCTOBER 6, 2023</span>
+										<i class="fas fa-star star"></i>
+									</div>
+								</div>
+								<div class="blog-text-wrapper">
+									<h3><a href="#">Working Together, Ideas Come to Life</a></h3>
+									<p>Collaboration is the cornerstone of successful digital projects. When teams work together effectively, innovative ideas transform into powerful solutions that drive business growth and user satisfaction.</p>
+									<a href="#" class="blog-read-more">Read More</a>
+								</div>
+							</div>
+						</div>
+
+						<!-- Blog Post 2 - Image Right -->
+						<div class="bi-blog-zigzag-item wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1000ms">
+							<div class="blog-content-wrapper">
+								<div class="blog-img-wrapper">
+									<img src="assets/img/blog/blg2.jpg" alt="">
+									<div class="blog-meta-star">
+										<span class="date">OCTOBER 6, 2023</span>
+										<i class="fas fa-star star"></i>
+									</div>
+								</div>
+								<div class="blog-text-wrapper">
+									<h3><a href="#">Innovative Design Solutions</a></h3>
+									<p>Explore cutting-edge design methodologies that push the boundaries of creativity. Our innovative approaches combine user-centered design with modern technology to deliver exceptional digital experiences.</p>
+									<a href="#" class="blog-read-more">Read More</a>
+								</div>
+							</div>
+						</div>
+
+						<!-- Blog Post 3 - Image Left -->
+						<div class="bi-blog-zigzag-item wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1000ms">
+							<div class="blog-content-wrapper">
+								<div class="blog-img-wrapper">
+									<img src="assets/img/blog/blg3.jpg" alt="">
+									<div class="blog-meta-star">
+										<span class="date">OCTOBER 6, 2023</span>
+										<i class="fas fa-star star"></i>
+									</div>
+								</div>
+								<div class="blog-text-wrapper">
+									<h3><a href="#">Digital Transformation Strategies</a></h3>
+									<p>Discover proven strategies for digital transformation that help businesses adapt to changing market demands. Learn how to leverage technology to streamline operations and enhance customer experiences.</p>
+									<a href="#" class="blog-read-more">Read More</a>
+								</div>
+							</div>
+						</div>
+
+						<!-- Blog Post 4 - Image Right -->
+						<div class="bi-blog-zigzag-item wow fadeInUp" data-wow-delay="400ms" data-wow-duration="1000ms">
+							<div class="blog-content-wrapper">
+								<div class="blog-img-wrapper">
+									<img src="assets/img/blog/blg4.jpg" alt="">
+									<div class="blog-meta-star">
+										<span class="date">OCTOBER 6, 2023</span>
+										<i class="fas fa-star star"></i>
+									</div>
+								</div>
+								<div class="blog-text-wrapper">
+									<h3><a href="#">User Experience Excellence</a></h3>
+									<p>Master the art of creating exceptional user experiences that keep customers engaged and satisfied. Learn the latest UX trends and techniques that drive conversion rates and user retention.</p>
+									<a href="#" class="blog-read-more">Read More</a>
+								</div>
+							</div>
+						</div>
+
+						<!-- Blog Post 5 - Image Left -->
+						<div class="bi-blog-zigzag-item wow fadeInUp" data-wow-delay="500ms" data-wow-duration="1000ms">
+							<div class="blog-content-wrapper">
+								<div class="blog-img-wrapper">
+									<img src="assets/img/blog/blg5.jpg" alt="">
+									<div class="blog-meta-star">
+										<span class="date">OCTOBER 6, 2023</span>
+										<i class="fas fa-star star"></i>
+									</div>
+								</div>
+								<div class="blog-text-wrapper">
+									<h3><a href="#">Modern Web Development</a></h3>
+									<p>Stay ahead of the curve with modern web development practices and technologies. Explore responsive design, progressive web apps, and performance optimization techniques that deliver superior user experiences.</p>
+									<a href="#" class="blog-read-more">Read More</a>
+								</div>
+							</div>
+						</div>
+
+						<!-- Blog Post 6 - Image Right -->
+						<div class="bi-blog-zigzag-item wow fadeInUp" data-wow-delay="600ms" data-wow-duration="1000ms">
+							<div class="blog-content-wrapper">
+								<div class="blog-img-wrapper">
+									<img src="assets/img/blog/blg6.jpg" alt="">
+									<div class="blog-meta-star">
+										<span class="date">OCTOBER 6, 2023</span>
+										<i class="fas fa-star star"></i>
+									</div>
+								</div>
+								<div class="blog-text-wrapper">
+									<h3><a href="#">Strategic Digital Marketing</a></h3>
+									<p>Develop comprehensive digital marketing strategies that drive results and grow your business. Learn about SEO, content marketing, social media, and analytics to maximize your online presence and ROI.</p>
+									<a href="#" class="blog-read-more">Read More</a>
+								</div>
+							</div>
+						</div>
+
+						<!-- Pagination -->
+						<div class="bi-blog-pagination text-center">
+							<ul class="pagination">
+								<li class="disabled"><span><i class="fas fa-chevron-left"></i></span></li>
+								<li class="active"><a href="Blog.html">1</a></li>
+								<li><span class="disabled">2</span></li>
+								<li><span class="disabled">3</span></li>
+								<li class="disabled"><span><i class="fas fa-chevron-right"></i></span></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+<!-- End of blog section
+	============================================= -->
+
+<!-- Start of CTA section
+	============================================= -->
+	<section id="bi-cta" class="bi-cta-section position-relative">
+		<div class="container">
+			<div class="bi-cta-content d-flex align-items-center justify-content-between">
+				<div class="bi-cta-text">
+					<h3>Ready to Start Your Project?</h3>
+					<p>Let's turn your ideas into reality with our expert web design and development services.</p>
+				</div>
+				<div class="bi-cta-img">
+					<img src="assets/img/about/ab1.jpg" alt="">
+				</div>
+				<div class="bi-cta-btn">
+					<a href="Contact.html" class="enhanced-quote-btn">
+						<i class="fas fa-rocket"></i>
+						<span>GET FREE QUOTE</span>
+						<div class="btn-shine"></div>
+					</a>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Enhanced CTA Styles -->
+		<style>
+		.enhanced-quote-btn {
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			color: #ffffff;
+			padding: 15px 35px;
+			border-radius: 50px;
+			text-decoration: none;
+			font-weight: 700;
+			font-size: 16px;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			position: relative;
+			overflow: hidden;
+			transition: all 0.3s ease;
+			box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+			display: inline-flex;
+			align-items: center;
+			gap: 10px;
+		}
+		
+		.enhanced-quote-btn:hover {
+			transform: translateY(-3px);
+			box-shadow: 0 12px 35px rgba(102, 126, 234, 0.6);
+			color: #ffffff;
+			text-decoration: none;
+		}
+		
+		.enhanced-quote-btn::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: -100%;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+			transition: left 0.3s ease;
+			z-index: -1;
+		}
+		
+		.enhanced-quote-btn:hover::before {
+			left: 0;
+		}
+		
+		.enhanced-quote-btn i {
+			font-size: 18px;
+			animation: pulse 2s infinite;
+		}
+		
+		@keyframes pulse {
+			0%, 100% { transform: scale(1); }
+			50% { transform: scale(1.1); }
+		}
+		
+		.btn-shine {
+			position: absolute;
+			top: 0;
+			left: -100%;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+			transition: left 0.6s ease;
+		}
+		
+		.enhanced-quote-btn:hover .btn-shine {
+			left: 100%;
+		}
+		
+		@media (max-width: 768px) {
+			.enhanced-quote-btn {
+				padding: 12px 25px;
+				font-size: 14px;
+			}
+		}
+		</style>
+	</section>
+<!-- End of CTA section
+	============================================= -->
+
+<!-- Start of Footer  section
+	============================================= -->
+	<footer id="bi-footer" class="bi-footer-section" data-background="assets/img/bg/footer-bg.jpg">
+		<div class="bi-footer-widget-content">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-5">
+						<div class="bi-footer-widget headline pera-content ul-li-block">
+							<div class="about-widget">
+								<h3>Working Together
+								Ideas come to life</h3>
+								<p>
+									No matter how big your company is, as you expand and reach new highs you'll want an agency to have your back. One with a process
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2">
+						<div class="bi-footer-widget headline pera-content ul-li-block">
+							<div class="menu-widget">
+								<h3 class="widget-title">UI Design</h3>
+								<ul>
+									<li><a href="#">Estimation</a></li>
+									<li><a href="#">Research</a></li>
+									<li><a href="#">Storyboard</a></li>
+									<li><a href="#">User Flow</a></li>
+									<li><a href="#">Information </a></li>
+									<li><a href="#">Storyboard (IA)</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="bi-footer-widget headline pera-content ul-li-block">
+							<div class="menu-widget">
+								<h3 class="widget-title">Development</h3>
+								<ul>
+									<li><a href="#">Front End (HTML, CSS, React)</a></li>
+									<li><a href="#">Backend (Node.js, MongoDB)</a></li>
+									<li><a href="#">iOS (Swift)</a></li>
+									<li><a href="#">Android (Kotlin, Flutter)</a></li>
+									<li><a href="#">Post Delivery Support</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2">
+						<div class="bi-footer-widget headline pera-content ul-li-block">
+							<div class="menu-widget">
+								<h3 class="widget-title">UI Design</h3>
+								<ul>
+									<li><a href="#">Define Idea</a></li>
+									<li><a href="#">Target Audience</a></li>
+									<li><a href="#">Idea Validation</a></li>
+									<li><a href="#">Customer Value </a></li>
+									<li><a href="#">Build MVP Version</a></li>
+									<li><a href="#">Competitor Reserach</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bi-footer-social">
+			<div class="container">
+				<div class="bi-footer-social-content ul-li">
+					<ul>
+						<li><a href="#"><i class="fal fa-basketball-ball"></i> Dribbble </a></li>
+						<li><a href="#"><i class="fab fa-behance-square"></i>  Behance  </a></li>
+						<li><a href="#"><i class="fab fa-linkedin-in"></i> Linked In    </a></li>
+														<li><a href="https://www.facebook.com/people/Remlyx/100069426878077/"  rel="noopener noreferrer"><i class="fab fa-facebook-f"></i> Facebook  </a></li>
+						<li><a href="#"><i class="fab fa-instagram"></i> Instagram  </a></li>
+						<li><a href="#"><i class="fab fa-youtube"></i> Youtube </a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="bi-footer-logo-area">
+			<div class="container">
+				<div class="bi-footer-logo">
+					<div class="brand-logo text-center">
+						<a href="#"><img src="assets/img/rebirted.png" alt=""></a>
+					</div>
+					<div class="logo-mail text-center headline">
+						<h3><a href="#">remsams29@yahoo.com</a></h3>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bi-footer-copyright text-center">
+			Copyright 2024 @ Remlyx
+		</div>
+	</footer>	
+<!-- End of Footer  section
+	============================================= -->	
+
+	
+	<!-- For Js Library -->
+	<script src="assets/js/jquery-3.6.0.min.js"></script>
+	<script src="assets/js/bootstrap.bundle.min.js"></script>
+	<script src="assets/js/swiper-bundle.min.js"></script>
+	<script src="assets/js/appear.js"></script>
+	<script src="assets/js/counter.js"></script>
+	<script src="assets/js/gsap.min.js"></script>
+	<script src="assets/js/knob.js"></script>
+	<script src="assets/js/jquery.magnific-popup.min.js"></script>
+	<script src="assets/js/jquery.counterup.min.js"></script>
+	<script src="assets/js/waypoints.min.js"></script>
+	<script src="assets/js/parallax.min.js"></script>
+	<script src="assets/js/ScrollTrigger.min.js"></script>
+	<script src="assets/js/ScrollToPlugin.min.js"></script>
+	<script src="assets/js/ScrollSmoother.min.js"></script>
+	<script src="assets/js/SplitText.min.js"></script>
+	<script src="assets/js/jquery.filterizr.js"></script>
+	<script src="assets/js/imagesloaded.pkgd.min.js"></script>
+	<script src="assets/js/hover-revel.js"></script>
+	<script src="assets/js/split-type.min.js"></script>
+	<script src="assets/js/parallax-scroll.js"></script>
+	<script src="assets/js/jquery.marquee.min.js"></script>
+	<script src="assets/js/wow.min.js"></script>
+	<script src="assets/js/jquery.meanmenu.min.js"></script>
+	<script src="assets/js/tilt.jquery.min.js"></script>
+	<script src="assets/js/matter.min.js"></script>
+	<script src="assets/js/script.js"></script>
+	<script src="assets/js/mobile-menu.js"></script>
+	<script src="assets/js/mobile-menu-fix.js"></script>
+	<!-- Logo Enhancement and Debugging -->
+	<script src="assets/js/logo-enhancement.js"></script>
+</body>
+</html> 
+
+
+
+
+
+
+

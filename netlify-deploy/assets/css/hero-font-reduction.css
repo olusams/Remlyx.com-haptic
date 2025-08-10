@@ -1,0 +1,65 @@
+/* Hero Font Size Reduction - 30% smaller */
+
+/* Reduce main h1 font size by 30% (from 153px to 107px) */
+.bi-main-slider-item-4 .bi-main-slider-text h1 {
+    font-size: 107px !important;
+}
+
+/* Reduce span font size by 30% (from 131px to 92px) */
+.bi-main-slider-item-4 .bi-main-slider-text h1 span {
+    font-size: 92px !important;
+}
+
+/* Reduce strong font size by 30% (from 155px to 109px) */
+.bi-main-slider-item-4 .bi-main-slider-text h1 strong {
+    font-size: 109px !important;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 1200px) {
+    .bi-main-slider-item-4 .bi-main-slider-text h1 {
+        font-size: 85px !important;
+    }
+    .bi-main-slider-item-4 .bi-main-slider-text h1 span {
+        font-size: 73px !important;
+    }
+    .bi-main-slider-item-4 .bi-main-slider-text h1 strong {
+        font-size: 87px !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .bi-main-slider-item-4 .bi-main-slider-text h1 {
+        font-size: 65px !important;
+    }
+    .bi-main-slider-item-4 .bi-main-slider-text h1 span {
+        font-size: 55px !important;
+    }
+    .bi-main-slider-item-4 .bi-main-slider-text h1 strong {
+        font-size: 67px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .bi-main-slider-item-4 .bi-main-slider-text h1 {
+        font-size: 45px !important;
+    }
+    .bi-main-slider-item-4 .bi-main-slider-text h1 span {
+        font-size: 38px !important;
+    }
+    .bi-main-slider-item-4 .bi-main-slider-text h1 strong {
+        font-size: 47px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .bi-main-slider-item-4 .bi-main-slider-text h1 {
+        font-size: 35px !important;
+    }
+    .bi-main-slider-item-4 .bi-main-slider-text h1 span {
+        font-size: 30px !important;
+    }
+    .bi-main-slider-item-4 .bi-main-slider-text h1 strong {
+        font-size: 37px !important;
+    }
+} 
